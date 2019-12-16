@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>[Bài tập] Ứng dụng chuyển đổi tiền tệ</title>
+</head>
+
+<body>
+    <h1>ĐỔI TIỀN</h1>
+    <hr>
+    <table>
+        <tr>
+            <td>
+                <p>Số tiền:</p>
+            </td>
+            <td>
+                <p>Chuyển tiền:</p>
+            </td>
+            <td>
+                <p>Sang tiền:</p>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input id='Money' type="number" min="0"></input>
+            </td>
+            <td>
+                <select id="first">
+                    <option value="USD">Đô La Mỹ</option>
+                    <option value="VND">Việt Nam Đồng</option>
+                </select>
+            </td>
+            <td>
+                <select id="second">
+                    <option value="USD">Đô La Mỹ</option>
+                    <option value="VND">Việt Nam Đồng</option>
+                </select>
+            </td>
+            <td>
+                <button onclick="USDtoVND()" type="submit">Chuyển đổi</button>
+            </td>
+        </tr>
+    </table>
+    <p id="Ketqua"></p>
+    <script>
+        function USDtoVND() {
+            let first = document.getElementById('first').value;
+            let second = document.getElementById('second').value;
+            let Money = document.getElementById('Money').value;
+            if (first == 'USD' && second == 'VND') {
+                result = (23000 * Money);
+                document.getElementById('Ketqua').innerHTML = "Kết quả: " + result + " VNĐ";
+            }
+            if (second == 'USD' && first == 'VND') {
+                result = (Money / 23000);
+                document.getElementById('Ketqua').innerHTML = "Kết quả: " + result + " USD";
+            }
+            if (first == second) {
+                result = (Money);
+                document.getElementById('Ketqua').innerHTML = result;
+            }
+        }
+    </script>
+</body>
+
+</html>
