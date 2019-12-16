@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Ứng dụng máy tính</title>
+</head>
+<h1>MÁY TÍNH</h1>
+<hr>
+
+<body>
+    <table>
+        <tr>
+            <td colspan="2">Số thứ nhất: A</td>
+            <td colspan="2">Số thứ hai: B</td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="number" id="num1"></td>
+            <td colspan="2"><input type="number" id="num2"></td>
+        <tr>
+            <td><button style="width: 85px; height: 25px" type="button" onclick="calc(1)">A + B</button></td>
+            <td><button style="width: 84px; height: 25px" type="button" onclick="calc(2)">A - B</button></td>
+            <td><button style="width: 84px; height: 25px" type="button" onclick="calc(3)">A * B</button></td>
+            <td><button style="width: 84px; height: 25px" type="button" onclick="calc(4)">A / B</button></td>
+        </tr>
+        <tr>
+            <td>Kết quả: </td>
+            <td id="result" colspan="3">
+                </p>
+            </td>
+        </tr>
+        <script>
+            function calc(action) {
+                let num1 =parseFloat(document.getElementById('num1').value);
+                let num2 =ParseFloat(document.getElementById('num2').value);
+                switch (action) {
+                    case 1:
+                        document.getElementById('result').innerHTML = (num1 + num2);
+                        break;
+                    case 2:
+                        document.getElementById('result').innerHTML = (num1 - num2);
+                        break;
+                    case 3:
+                        document.getElementById('result').innerHTML = (num1 * num2);
+                        break;
+                    case 4:
+                        document.getElementById('result').innerHTML = (num1 / num2);
+                        break;
+                }
+            }
+        </script>
+    </table>
+</body>
+
+</html>
