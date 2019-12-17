@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[*Bài tập] Luyện tập cấu trúc điều kiện 01 Bài 5</title>
+</head>
+
+<body>
+    <!-- Bài 5: Xếp hạng học lực của học sinh dựa trên các điểm bài kiểm tra, điểm thi giữa kỳ, điểm thi cuối kỳ -->
+    <input type="number" id="test1" min="0" max="10" placeholder="Điểm kiểm tra" style="width: 100px;">
+    <input type="number" id="test2" min="0" max="10" placeholder="Điểm giữa kỳ" style="width: 100px;">
+    <input type="number" id="test3" min="0" max="10" placeholder="Điểm cuối kỳ" style="width: 100px;">
+    <button onclick="final()">Xếp loại</button>
+    <script>
+        function final() {
+            let test1 = parseFloat(document.getElementById('test1').value);
+            let test2 = parseFloat(document.getElementById('test2').value);
+            let test3 = parseFloat(document.getElementById('test3').value);
+            let total = ((test1 + test2 * 2 + test3 * 7) / 10).toFixed(2);
+            if (isNaN(total)) {
+                alert("Chưa nhập điểm hoặc nhập sai");
+            }
+            if (total >= 9) {
+                alert("Điểm tổng " + total + " Xếp loại: Xuất sắc");
+            }
+            else if (total >= 8.5) {
+                alert("Điểm tổng " + total + " Xếp loại: Giỏi");
+            }
+            else if (total >= 7) {
+                alert("Điểm tổng " + total + " Xếp loại: Khá")
+            }
+            else if (total >= 5) {
+                alert("Điểm tổng " + total + " Xếp loại: Trung bình");
+            }
+            else if (total >= 4) {
+                alert("Điểm tổng " + total + " Xếp loại: Yếu");
+            }
+            else {
+                alert("Điểm tổng " + total + " Xếp loại: Kém")
+            }
+        }
+    </script>
+</body>
+
+</html>

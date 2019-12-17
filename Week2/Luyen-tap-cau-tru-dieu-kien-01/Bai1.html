@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[*Bài tập] Luyện tập cấu trúc điều kiện 01</title>
+</head>
+
+<body>
+    <!-- Bài 1: Nhập vào hai số a và b, và kiểm tra xem a có chia hết cho b hay không -->
+    <p>Kiếm tra a có chia hết cho b hay không</p>
+    <input type="number" id="numa" placeholder="Nhập số a">
+    <input type="number" id="numb" placeholder="Nhập số b">
+    <button onclick="calc()">Kiểm tra</button>
+    <p>Kết quả: <span id="ketqua"></span></p>
+    <script>
+        function calc() {
+            let a = parseFloat(document.getElementById('numa').value);
+            let b = parseFloat(document.getElementById('numb').value);
+            if (isNaN(b) || isNaN(a)) {
+                document.getElementById('ketqua').innerHTML = ('Nhập vào a và b');
+            }
+            else if (b != 0) {
+                if (a % b === 0) {
+                    document.getElementById('ketqua').innerHTML = (a + " chia hết cho " + b);
+                }
+                else {
+                    document.getElementById('ketqua').innerHTML = (a + " không chia hết cho " + b);
+                }
+            }
+            else {
+                document.getElementById('ketqua').innerHTML = ('b phải khác 0. Nhập lại b');
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[*Bài tập] Luyện tập cấu trúc điều kiện 01 - Bài 2</title>
+</head>
+
+<body>
+    <!-- Bài 2: Nhập tuổi và in ra kết quả nếu tuổi học sinh đó không đủ điều kiện vào học lớp 10. -->
+    <p>Kiểm tra tuổi có đủ vào học lớp 10</p>
+    <input type="number" id="age" placeholder="Nhập tuổi">
+    <button onclick="search()">Kiểm tra</button>
+    <p>Kết quả: <span id='ketqua'></span></p>
+    <script>
+        function search() {
+            let age = parseFloat(document.getElementById('age').value)
+            if (isNaN(age)||age<0) {
+                document.getElementById('ketqua').innerHTML = ("Chưa nhập tuổi hoặc nhập sai, nhập lại");
+            }
+            else if (age >= 16) {
+                document.getElementById('ketqua').innerHTML = ("Bạn đủ điều kiện vào lớp 10");
+            }
+            else {
+                document.getElementById('ketqua').innerHTML = ("Bạn không đủ điều kiện vào lớp 10");
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[*Bài tập] Luyện tập cấu trúc điều kiện 01 -Bài 4</title>
+</head>
+
+<body>
+    <!-- Bài 4: Nhập 3 số nguyên và tìm giá trị lớn nhất của ba số nguyên đó -->
+    <p>Tìm số lớn nhất của ba số</p>
+    <button onclick="nhapso()">Tìm số lớn nhất</button>
+    <p id="ketqua"></p>
+    <script>
+        function nhapso() {
+            let num1 = parseFloat(prompt('Nhập số thứ nhất:'));
+            let num2 = parseFloat(prompt('Nhập số thứ hai:'));
+            let num3 = parseFloat(prompt('Nhập số thứ ba:'));
+            if (isNaN(num1) || isNaN(num2) || isNaN(num3)) {
+                document.getElementById('ketqua').innerHTML = ('Chưa nhập hoặc nhập sai số, kiểm tra lại')
+            }
+            else if ((num1 >= num2 && num1 > num3) || (num1 > num2 && num1 >= num3)) {
+                document.getElementById('ketqua').innerHTML = ('Số lớn nhất trong ba số ' + num1 + ' ' + num2 + ' ' + num3 + ' là số: ' + num1);
+            }
+            else if ((num2 >= num1 && num2 > num3) || (num2 > num1 && num2 >= num3)) {
+                document.getElementById('ketqua').innerHTML = ('Số lớn nhất trong ba số ' + num1 + ' ' + num2 + ' ' + num3 + ' là số: ' + num2);
+            }
+            else if (num1 === num2 === num3) {
+                document.getElementById('ketqua').innerHTML = ('Ba số bằng nhau và bằng: ' + num2);
+            }
+            else {
+                document.getElementById('ketqua').innerHTML = ('Số lớn nhất trong ba số ' + num1 + ' ' + num2 + ' ' + num3 + ' là số: ' + num3);
+            }
+        }
+    </script>
+</body>
+
+</html>

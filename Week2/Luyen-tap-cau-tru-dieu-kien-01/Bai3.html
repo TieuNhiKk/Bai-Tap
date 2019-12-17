@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[*Bài tập] Luyện tập cấu trúc điều kiện 01 - Bài 3</title>
+</head>
+
+<body>
+    <!-- Bài 3: Nhập một số nguyên bất kỳ và in kết quả ra màn hình để nói cho người dùng biết số đó là lớn hay nhỏ hơn 0 -->
+    <p>Kiểm tra một số lớn hơn hay nhỏ hơn 0</p>
+    <input type="number" id="number">
+    <button onclick="Search()">Kiểm tra</button>
+    <p>Kết quả: <span id="ketqua"></span></p>
+    <script>
+        function Search() {
+            let number = parseFloat(document.getElementById('number').value);
+            if (isNaN(number)) {
+                document.getElementById('ketqua').innerHTML = ("Chưa nhập số");
+            }
+            else if (number === 0) {
+                document.getElementById('ketqua').innerHTML = ("0 thì vẫn bằng 0 thôi!");
+            }
+            else if (number > 0) {
+                document.getElementById('ketqua').innerHTML = (number + " lớn hơn 0");
+            }
+            else {
+                document.getElementById('ketqua').innerHTML = (number + " nhỏ hơn 0");
+            }
+        }
+    </script>
+</body>
+
+</html>
