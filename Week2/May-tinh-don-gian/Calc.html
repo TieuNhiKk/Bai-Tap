@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Máy tính đơn giản</title>
+    <style>
+table, tr, td {
+  border: 1px solid none;
+  padding: 0px;
+  margin: 2px;
+  text-align: center;
+}
+button {
+    width: 40px;
+    height: auto;
+    color: mediumblue;
+}
+input {
+    width: auto;
+    height: auto;
+    background-color:whitesmoke;
+    color: mediumblue;
+    padding: 12px;
+    margin: auto;
+}    
+    </style>
+</head>
+<body>
+    <form>
+        <table>
+            <tr>
+                <td colspan='4'><input type="text" name="manhinh" disabled> </td>
+            </tr>
+            <td><button type="button" onclick="manhinh.value+=1">1</button></td>
+            <td><button type="button" onclick="manhinh.value+=2">2</button></td>
+            <td><button type="button" onclick="manhinh.value+=3">3</button></td>
+            <td><button type="button" onclick="manhinh.value+='+'">+</button></td>
+            <tr>
+                <td><button type="button" onclick="manhinh.value+=4">4</button></td>
+                <td><button type="button" onclick="manhinh.value+=5">5</button></td>
+                <td><button type="button" onclick="manhinh.value+=6">6</button></td>
+                <td><button type="button" onclick="manhinh.value+='-'">-</button></td>
+            </tr>
+            <tr>
+                <td><button type="button" onclick="manhinh.value+=7">7</button></td>
+                <td><button type="button" onclick="manhinh.value+=8">8</button></td>
+                <td><button type="button" onclick="manhinh.value+=9">9</button></td>
+                <td><button type="button" onclick="manhinh.value+='*'">*</button></td>
+            </tr>
+            <tr>
+                <td><button type="reset">C</button></td>
+                <td><button type="button" onclick="manhinh.value+=0">0</button></td>
+                <td><button type="button" onclick="manhinh.value=eval(manhinh.value)">=</button></td>
+                <td><button type="button" onclick="manhinh.value+='/'">/</button></td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>
