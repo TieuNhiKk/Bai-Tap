@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Game puzzleAssignment</title>
+    <style>
+        form {
+            border: none;
+        }
+
+        img {
+            display: block;
+            width: 400px;
+            height: 80px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 2px;
+            border: ridge;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="puzz">
+        <img id='pic1' src="img/cat1.jpg" alt="Cat" onclick="change1(),add()">
+        <img id='pic2' src="img/cat2.jpg" alt="Cat" onclick="change2(),add()">
+        <img id="pic3" src="img/cat3.jpg" alt="Cat" onclick="change3(),add()">
+        <img id="pic4" src="img/cat4.jpg" alt="Cat" onclick="change4(),add()">
+        <img id="pic5" src="img/cat5.jpg" alt="Cat" onclick="change5(),add()">
+    </form>
+    <script src="puzzle.js"></script>
+</body>
+
+</html>
