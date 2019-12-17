@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[Bài tập] Ứng dụng vui DoYouLoveMe</title>
+    <style>
+        div {
+            text-align: left;
+        }
+        button {
+            width: 50px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Do you love me?</h1>
+    <div>
+        <button type="submit" id="metoo" onclick="yes()">Yes</button>
+        <button style="left: auto;top: auto;" id="lie" onmouseover="sad()">No</button>
+    </div>
+<script>
+    function yes(){
+        alert("<3 me too!");
+    }
+    function sad(){
+        let Height=window.innerHeight;
+        let Width=window.innerWidth;
+        let No=document.getElementById('lie');
+        No.style.left=Math.floor(Math.random()*Height)+"px";
+        No.style.top=Math.floor(Math.random()*Width)+"px"
+    }
+</script>
+</html>
