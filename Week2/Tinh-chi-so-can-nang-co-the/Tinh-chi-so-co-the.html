@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Tính chỉ số cân nặng của cơ thể</title>
+</head>
+
+<body>
+    <div>
+        <input type="number" min="0" id="Weight" placeholder="Cân nặng (kg)">
+        <input type="number" min="0" id="Height" placeholder="Chiều cao (m)">
+        <input type="submit" id="submit" value="Xác Nhận">
+    </div>
+    <div>
+        <p>Chỉ số cơ thể của bạn là: <span id="result1"></span></p>
+        <p>Xếp loại: <span id="result2"></span></p>
+    </div>
+    <script>
+        let submit = document.getElementById('submit');
+        submit.onclick = function () {
+            let Weight = parseFloat(document.getElementById('Weight').value);
+            let Height = parseFloat(document.getElementById('Height').value);
+            if (Weight > 0 && Height > 0) {
+                BMI = (Weight / (Height * Height));
+                switch (BMI < 18 ? 1 : BMI < 25 ? 2 : BMI < 30 ? 3 : BMI >= 30) {
+                    case 1:
+                        document.getElementById('result2').innerHTML = "Gầy";
+                        break;
+                    case 2:
+                        document.getElementById('result2').innerHTML = "Trung bình";
+                        break;
+                    case 3:
+                        document.getElementById('result2').innerHTML = "Thừa cân";
+                        break;
+                    default:
+                        document.getElementById('result2').innerHTML = "Béo phì";
+                }
+                document.getElementById('result1').innerHTML = BMI;
+            }
+            else {
+                alert("Nhập lại cân nặng hoặc chiều cao");
+            }
+        }
+    </script>
+</body>
+
+</html>
