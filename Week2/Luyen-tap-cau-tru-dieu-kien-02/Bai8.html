@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    #yes {
+        background-color: white;
+        width: 200px;
+        color: black;
+    }
+
+    #no {
+        background-color: white;
+        width: 200px;
+        color: black;
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[*Bài tập] Luyện tập cấu trúc điều kiện 02 - Bài 8</title>
+</head>
+
+<body>
+    <!-- Bài 8: Kiểm tra xem một số nhập vào có phải là tuổi của một người không. Một số nguyên là tuổi của một người khi nhỏ 120 và lơn hơn 0. -->
+    <h1>Kiểm tra số nhập vào có phải là tuổi của một người không</h1>
+    <input type="number" id="age" placeholder="Nhập số tuổi">
+    <input type="button" onclick="check()" value="Kiểm tra">
+    <br>
+    <br>
+    <input type="button" id="yes" name="yes" value="Là tuổi của một người" disabled>
+    <input type="button" id="no" name="no" value="Không phải là tuổi của người" disabled>
+    <script>
+        function check() {
+            let age = parseFloat(document.getElementById('age').value);
+            let yes = document.getElementById('yes').style.backgroundColor;
+            yes = "none";
+            let no = document.getElementById('no').style.backgroundColor;
+            no = "none;"
+            if (isNaN(age)){
+                alert('Chưa nhập tuổi');
+            }
+            else if (age < 120 && age % 1 === 0 && age > 0) {
+                yes = "burlywood";
+                no = "white"
+                document.getElementById('no').style.backgroundColor = no;
+                document.getElementById('yes').style.backgroundColor = yes;
+            }
+            else {
+                no = "burlywood";
+                yes = "white"
+                document.getElementById('no').style.backgroundColor = no;
+                document.getElementById('yes').style.backgroundColor = yes;
+            }
+        }
+    </script>
+</body>
+
+</html>

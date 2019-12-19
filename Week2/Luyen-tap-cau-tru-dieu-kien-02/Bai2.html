@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[*Bài tập] Luyện tập cấu trúc điều kiện 02 - Bài 2</title>
+</head>
+
+<body>
+    <!-- Bài 2: Chuyển từ mét sang feet: -->
+    <h1>Chuyển đổi từ mét sang feet</h1>
+    <form>
+        <input type="text" id="nhapvao">
+        <select id="choo">
+            <option value="ftm">Feet sang mét</option>
+            <option value="mtf">Mét sang feet</option>
+        </select>
+        <button type="button" onclick="add()">Kết quả</button>
+        <p>Kết quả: <span id="ketqua"></span></p>
+    </form>
+    <script>
+        function add() {
+            let nhapvao = parseFloat(document.getElementById("nhapvao").value);
+            let choo = document.getElementById("choo").value;
+            if (isNaN(nhapvao) || nhapvao < 0) {
+                alert('Chưa nhập hoặc nhập sai. Nhập lại')
+            }
+            else if (choo === "mtf") {
+                document.getElementById('ketqua').innerHTML = (nhapvao * 3.2808);
+            }
+            else {
+                document.getElementById('ketqua').innerHTML = (nhapvao / 3.2808);
+            }
+        }
+    </script>
+</body>
+
+</html>

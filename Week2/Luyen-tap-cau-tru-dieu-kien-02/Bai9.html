@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[*Bài tập] Luyện tập cấu trúc điều kiện 02 - Bài 9</title>
+</head>
+
+<body>
+    <!-- Bài 9: Kiểm tra xem 3 số thực (a,b,c) nhập vào có phải là cạnh của một tam giác. Điều kiện để a,b,c là cạnh của một tam giác là: -->
+    <table>
+        <tr>
+            <td>
+                <fieldset style="width:fit-content; text-align: center;">
+                    <legend style="text-align: center; ">Kiểm tra tam giác</legend>
+                    <p><input type="number" id='a' placeholder="Nhập a" value="0"></p>
+                    <p><input type="number" id="b" placeholder="Nhập b" value="0"></p>
+                    <p><input type="number" id="c" placeholder="Nhập c" value="0"></p>
+                    <input type="button" id="check" onclick="check()" value="Kiểm tra">
+                </fieldset>
+            </td>
+            <td style="vertical-align: top">
+                <fieldset style="width:fit-content; text-align: center;">
+                    <legend style="text-align: center; ">Kết quả</legend>
+                    <input type="text" id="ketqua" disabled
+                        style="text-align: center; font-size: 20px; background-color: white; color: crimson;">
+                </fieldset>
+            </td>
+        </tr>
+    </table>
+    <script>
+        function check() {
+            let a = parseFloat(document.getElementById('a').value);
+            let b = parseFloat(document.getElementById('b').value);
+            let c = parseFloat(document.getElementById('c').value);
+            if (isNaN(a) || isNaN(b) || isNaN(c)) {
+                alert("Vui lòng nhập đủ a,b và c");
+            }
+            else if (a + b > c && a + c > b && b + c > a) {
+                document.getElementById('ketqua').value = ('Là một tam giác');
+            }
+            else {
+                document.getElementById('ketqua').value = ('Không phải tam giác');
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[*Bài tập] Luyện tập cấu trúc điều kiện 02 - Bài 1</title>
+</head>
+
+<body>
+    <!-- Bài 1: Chuyển từ độ C sang độ F. -->
+    <h1>Chuyển đổi nhiệt Độ</h1>
+    <table>
+        <tr>
+            <td colspan="2">Nhiệt độ cần chuyển:</td>
+        </tr>
+        <tr>
+            <td>Độ C<input type="radio" id="C0" name="nhietdo" checked></td>
+            <td rowspan="2"><input type="text" id="inp"></td>
+
+        </tr>
+        <tr>
+            <td>Độ F<input type="radio" name="nhietdo" id="F0"></td>
+        </tr>
+        <tr>
+            <td><button type="button" onclick="change()">Kết quả:</button></td>
+            <td><input type="text" id="ketqua" disabled></td>
+        </tr>
+        </div>
+        </div>
+    </table>
+    <script>
+        function change() {
+            let C0 = document.getElementById('C0').checked;
+            console.log(C0);
+            let nhietdo = parseFloat(document.getElementById('inp').value);
+            if (isNaN(nhietdo)) {
+                alert("Nhập sai vui lòng nhập lại nhiệt độ!");
+            }
+            else if (C0) {
+                let F = (nhietdo * 9 / 5) + 32;
+                document.getElementById('ketqua').value = F + " Độ F";
+            }
+            else {
+                let C = (nhietdo * 5 / 9) - 32;
+                document.getElementById('ketqua').value =C + " Độ C";
+            }
+        }
+    </script>
+</body>
+
+</html>

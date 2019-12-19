@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[*Bài tập] Luyện tập cấu trúc điều kiện 02 - Bài 6</title>
+</head>
+
+<body>
+    <!-- Bài 6: Giải phương trình bậc 1. -->
+</body>
+<h1>Giải phương trình bậc nhất Ax + B = 0</h1>
+<div>
+    <fieldset style="width:max-content;">
+        <legend>Ax+B=0</legend>
+        <table>
+            <tr>
+                <td>Nhập số A:</td>
+            </tr>
+            <tr>
+                <td><input type="number" id="numA" value="0"></td>
+                <td rowspan="3" style="padding-left: 20px;" onclick="timx()"><button>Tìm x</button></td>
+            </tr>
+            <tr>
+                <td>Nhập số B:</td>
+            </tr>
+            <tr>
+                <td><input type="number" id="numB" value="0"></td>
+            </tr>
+        </table>
+    </fieldset>
+</div>
+<script>
+    function timx() {
+        let numA = parseFloat(document.getElementById("numA").value);
+        let numB = parseFloat(document.getElementById("numB").value);
+        if (isNaN(numA) || isNaN(numB)) {
+            alert("Chưa nhập số A hoặc B hoặc cả 2")
+        }
+        else if (numA === 0) {
+            if (numB === 0) {
+                alert("Phương trình có vô số nghiệm");
+            }
+            else {
+                alert("Phương trình vô nghiệm")
+            }
+        }
+        else if (numB === 0) {
+            alert("Phương trình có nghiệm x = 0");
+        }
+        else {
+            alert("Phương trình có nghiệm x = " + (-numB / numA));
+        }
+    }
+</script>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[*Bài tập] Luyện tập cấu trúc điều kiện 02 - Bài 11</title>
+</head>
+
+<body>
+    <!-- Bài 11: Viết chương trình tính thuế thu nhập cá nhân. -->
+    <p>Tổng thu nhập:</p>
+    <input type="number" min="0" value="0" id="tong">
+    <p>Tổng các khoản miễn thuế:</p>
+    <input type="number" min="0" value="0" id="mienthue">
+    <p>Tổng các khoản giảm trừ: </p>
+    <input type="number" min="0" value="0" id="giamtru">
+    <Button type="button" onclick="count()">Tính thuế TNCN</Button>
+    <p>Thuế thu nhập cá nhân của bạn là: <span id="ketqua"></span></p>
+    <script>
+        function count() {
+            let tong = parseInt(document.getElementById('tong').value);
+            let mienthue = parseInt(document.getElementById('mienthue').value);
+            let giamtru = parseInt(document.getElementById('giamtru').value);
+            let chiuthue = tong - mienthue;
+            let tinhthue = chiuthue - giamtru;
+            let tong1 = isNaN(tong) || tong < 0;
+            let mienthue1 = isNaN(mienthue) || mienthue < 0;
+            let giamtru1 = isNaN(giamtru) || giamtru < 0;
+            switch ((tong1 || mienthue1 || giamtru1) ? 0 : tinhthue < 5000000 ? 7 : tinhthue === 5000000 ? 1 : tinhthue <= 10000000 ? 2 : tinhthue <= 18000000 ? 3 : tinhthue <= 32000000 ? 4 : tinhthue <= 52000000 ? 5 : tinhthue <= 80000000 ? 6 : tinhthue > 80000000) {
+                case 0:
+                    alert("Chưa nhập đủ hoặc nhập sai");
+                    break;
+                case 7:
+                    document.getElementById('ketqua').innerHTML = ("Bạn không phải đóng thuế thu nhập cá nhân");
+                    break;
+                case 1:
+                    document.getElementById('ketqua').innerHTML = (tinhthue * 5 / 100) + " nghìn đồng";
+                    break;
+                case 2:
+                    document.getElementById('ketqua').innerHTML = ((tinhthue * 10 / 100) - 250000) + " nghìn đồng";
+                    break;
+                case 3:
+                    document.getElementById('ketqua').innerHTML = ((tinhthue * 15 / 100) - 750000) + " nghìn đồng";
+                    break;
+                case 4:
+                    document.getElementById('ketqua').innerHTML = ((tinhthue * 20 / 100) - 1650000) + " nghìn đồng";
+                    break;
+                case 5:
+                    document.getElementById('ketqua').innerHTML = ((tinhthue * 25 / 100) - 3250000) + " nghìn đồng";
+                    break;
+                case 6:
+                    document.getElementById('ketqua').innerHTML = ((tinhthue * 30 / 100) - 5850000) + " nghìn đồng";
+                    break;
+                default:
+                    document.getElementById('ketqua').innerHTML = ((tinhthue * 35 / 100) - 9850000) + " nghìn đồng";
+            }
+        }
+    </script>
+</body>
+
+</html>

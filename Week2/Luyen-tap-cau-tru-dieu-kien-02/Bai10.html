@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[*Bài tập] Luyện tập cấu trúc điều kiện 02 - Bài 10</title>
+    <style>
+        fieldset {
+            text-align: center;
+            width: 400px;
+        }
+
+        #table {
+            height: fit-content;
+        }
+
+        table {
+            width: fit-content;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        #bb,
+        #b1,
+        #b2,
+        #b3,
+        #b4,
+        #b5,
+        #b6,
+        #thue,
+        #tiendien,
+        #tong {
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Bài 10: Viết chương trình tính giá điện-->
+    <h1>Tính tiền điện</h1>
+    <div>
+        <fieldset>
+            <legend>Thông số điện</legend>
+            <input type="number" min="0" id="sodien" placeholder="Nhập số điện đã sử dụng">
+            <button type="button" onclick="count()">Tính toán</button>
+        </fieldset>
+        <fieldset id="table">
+            <legend>Kết quả</legend>
+            <table>
+                <tr>
+                    <td></td>
+                    <td>Điện tiêu thụ<br>(kWh)</td>
+                    <td>*</td>
+                    <td>Đơn giá<br>(đồng)</td>
+                    <td>=</td>
+                    <td id="bb">Số tiền<br>(đồng)</td>
+                </tr>
+                <tr>
+                    <td>Bậc thang 1</td>
+                    <td id="m1">50</p>
+                    <td>*</td>
+                    <td>1678</td>
+                    <td>=</td>
+                    <td id="b1"></td>
+                </tr>
+                <tr>
+                    <td>Bậc thang 2</td>
+                    <td id="m2">50</p>
+                    <td>*</td>
+                    <td>1734</td>
+                    <td>=</td>
+                    <td id="b2"></td>
+                </tr>
+                <tr>
+                    <td>Bậc thang 3</td>
+                    <td id="m3">100</p>
+                    <td>*</td>
+                    <td>2014</td>
+                    <td>=</td>
+                    <td id="b3"></td>
+                </tr>
+                <tr>
+                    <td>Bậc thang 4</td>
+                    <td id="m4">100</p>
+                    <td>*</td>
+                    <td>2536</td>
+                    <td>=</td>
+                    <td id="b4"></td>
+                </tr>
+                <tr>
+                    <td>Bậc thang 5</td>
+                    <td id="m5">100</p>
+                    <td>*</td>
+                    <td>2834</td>
+                    <td>=</td>
+                    <td id="b5"></td>
+                </tr>
+                <tr>
+                    <td>Bậc thang 6</td>
+                    <td id="m6">0</p>
+                    <td>*</td>
+                    <td>2927</td>
+                    <td>=</td>
+                    <td id="b6"></td>
+                </tr>
+                <tr>
+                    <td style="font-size:20px; text-align: left;">Thành tiền</td>
+                </tr>
+                <tr>
+                    <td colspan="5" style="text-align: left;">Tiền điện</td>
+                    <td id="tiendien"></td>
+                </tr>
+                <tr>
+                    <td colspan="5" style="text-align: left;">Thuế GTGT (10%) tiền điện</td>
+                    <td id="thue"></td>
+                </tr>
+                <tr>
+                    <td colspan="5" style="text-align: left;">Tổng tiền</td>
+                    <td id="tong">
+                        <hr>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+    </div>
+    <script>
+        function count() {
+            let sodien = parseInt(document.getElementById('sodien').value);
+            let b1 = 50 * 1678;
+            let b2 = b1 + 50 * 1734;
+            let b3 = b2 + 100 * 2014;
+            let b4 = b3 + 100 * 2536;
+            let b5 = b4 + 100 * 2834;
+            let b6 = b5 + (sodien - 400) * 2927;
+            let tong = 0;
+            let thue = 0;
+            switch (isNaN(sodien)||sodien<0?5:sodien > 400 ? 0 : sodien > 300 ? 1 : sodien > 200 ? 2 : sodien > 100 ? 3 : sodien > 50 ? 4 :sodien<= 50) {
+                case 5:
+                    alert("Nhập sai hoặc chưa nhập số điện");
+                    break;
+                case 0:
+                    tong = b1 + b2 + b3 + b4 + b5 + b6;
+                    thue = tong * 10 / 100;
+                    document.getElementById("b1").innerHTML = (b1);
+                    document.getElementById("b2").innerHTML = (b2);
+                    document.getElementById("b3").innerHTML = (b3);
+                    document.getElementById("b4").innerHTML = (b4);
+                    document.getElementById("b5").innerHTML = (b5);
+                    document.getElementById("b6").innerHTML = (b6);
+                    document.getElementById("m1").innerHTML = (50);
+                    document.getElementById("m2").innerHTML = (50);
+                    document.getElementById("m3").innerHTML = (100);
+                    document.getElementById("m4").innerHTML = (100);
+                    document.getElementById("m5").innerHTML = (100);
+                    document.getElementById("m6").innerHTML = (sodien - 400);
+                    document.getElementById("tiendien").innerHTML = (tong);
+                    document.getElementById("thue").innerHTML = (thue);
+                    document.getElementById("tong").innerHTML = (tong + thue);
+                    break;
+                case 1:
+                    tong = b1 + b2 + b3 + b4 + (sodien - 300) * 2834;
+                    thue = tong * 10 / 100;
+                    document.getElementById("b1").innerHTML = (b1);
+                    document.getElementById("b2").innerHTML = (b2);
+                    document.getElementById("b3").innerHTML = (b3);
+                    document.getElementById("b4").innerHTML = (b4);
+                    document.getElementById("m1").innerHTML = (50);
+                    document.getElementById("m2").innerHTML = (50);
+                    document.getElementById("m3").innerHTML = (100);
+                    document.getElementById("m4").innerHTML = (100);
+                    document.getElementById("m5").innerHTML = (sodien - 300);
+                    document.getElementById("m6").innerHTML = (0);
+                    document.getElementById("b6").innerHTML = (0);
+                    document.getElementById("b5").innerHTML = ((sodien - 300) * 2834);
+                    document.getElementById("tiendien").innerHTML = (tong);
+                    document.getElementById("thue").innerHTML = (thue);
+                    document.getElementById("tong").innerHTML = (tong + thue);
+                    break;
+                case 2:
+                    tong = b1 + b2 + b3 + (sodien - 200) * 2536;
+                    thue = tong * 10 / 100;
+                    document.getElementById("b1").innerHTML = (b1);
+                    document.getElementById("b2").innerHTML = (b2);
+                    document.getElementById("b3").innerHTML = (b3);
+                    document.getElementById("m1").innerHTML = (50);
+                    document.getElementById("m2").innerHTML = (50);
+                    document.getElementById("m3").innerHTML = (100);
+                    document.getElementById("m4").innerHTML = (sodien - 200);
+                    document.getElementById("m5").innerHTML = (0);
+                    document.getElementById("m6").innerHTML = (0);
+                    document.getElementById("b5").innerHTML = (0);
+                    document.getElementById("b6").innerHTML = (0);
+                    document.getElementById("b4").innerHTML = ((sodien - 200) * 2536);
+                    document.getElementById("tiendien").innerHTML = (tong);
+                    document.getElementById("thue").innerHTML = (thue);
+                    document.getElementById("tong").innerHTML = (tong + thue);
+                    break;
+                case 3:
+                    tong = b1 + b2 + (sodien - 100) * 2014;
+                    thue = tong * 10 / 100;
+                    document.getElementById("b1").innerHTML = (b1);
+                    document.getElementById("b2").innerHTML = (b2);
+                    document.getElementById("m1").innerHTML = (50);
+                    document.getElementById("m2").innerHTML = (50);
+                    document.getElementById("m3").innerHTML = (sodien - 100);
+                    document.getElementById("m4").innerHTML = (0);
+                    document.getElementById("m5").innerHTML = (0);
+                    document.getElementById("m6").innerHTML = (0);
+                    document.getElementById("b4").innerHTML = (0);
+                    document.getElementById("b5").innerHTML = (0);
+                    document.getElementById("b6").innerHTML = (0);
+                    document.getElementById("b3").innerHTML = ((sodien - 100) * 2014);
+                    document.getElementById("tiendien").innerHTML = (tong);
+                    document.getElementById("thue").innerHTML = (thue);
+                    document.getElementById("tong").innerHTML = (tong + thue);
+                    break;
+                case 4:
+                    tong = b1 + (sodien - 50) * 1734;
+                    thue = tong * 10 / 100;
+                    document.getElementById("b1").innerHTML = (b1);
+                    document.getElementById("m1").innerHTML = (50);
+                    document.getElementById("m2").innerHTML = (sodien - 50);
+                    document.getElementById("m3").innerHTML = (0);
+                    document.getElementById("m4").innerHTML = (0);
+                    document.getElementById("m5").innerHTML = (0);
+                    document.getElementById("m6").innerHTML = (0);
+                    document.getElementById("b3").innerHTML = (0);
+                    document.getElementById("b4").innerHTML = (0);
+                    document.getElementById("b5").innerHTML = (0);
+                    document.getElementById("b6").innerHTML = (0);
+                    document.getElementById("b2").innerHTML = ((sodien - 50) * 1734);
+                    document.getElementById("tiendien").innerHTML = (tong);
+                    document.getElementById("thue").innerHTML = (thue);
+                    document.getElementById("tong").innerHTML = (tong + thue);
+                    break;
+                default:
+                    tong = sodien * 1678;
+                    thue = tong * 10 / 100;
+                    document.getElementById("m1").innerHTML = (sodien);
+                    document.getElementById("m2").innerHTML = (0);
+                    document.getElementById("m3").innerHTML = (0);
+                    document.getElementById("m4").innerHTML = (0);
+                    document.getElementById("m5").innerHTML = (0);
+                    document.getElementById("m6").innerHTML = (0);
+                    document.getElementById("b2").innerHTML = (0);
+                    document.getElementById("b3").innerHTML = (0);
+                    document.getElementById("b4").innerHTML = (0);
+                    document.getElementById("b5").innerHTML = (0);
+                    document.getElementById("b6").innerHTML = (0);
+                    document.getElementById("b1").innerHTML = (sodien * 1678);
+                    document.getElementById("tiendien").innerHTML = (tong);
+                    document.getElementById("thue").innerHTML = (thue);
+                    document.getElementById("tong").innerHTML = (tong + thue);
+            }
+        }
+    </script>
+</body>
+
+</html>

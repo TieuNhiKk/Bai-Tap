@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[*Bài tập] Luyện tập cấu trúc điều kiện 02 - Bài 7</title>
+</head>
+
+<body>
+    <!-- Bài 7: Giải phương trình bậc 2. -->
+    <fieldset style="width:fit-content;">
+        <legend>Phương trình bậc 2 Ax<sup>2</sup> + Bx + C = 0</legend>
+        <input type="number" placeholder="Nhập A" id="numA" value="0">
+        <input type="number" placeholder="Nhập B" id="numB" value="0">
+        <input type="number" placeholder="Nhập C" id="numC" value="0">
+        <button type="button" onclick="timx()">Tìm x</button>
+    </fieldset>
+    </fieldset>
+    <script>
+        function timx() {
+            let A = parseFloat(document.getElementById('numA').value);
+            let B = parseFloat(document.getElementById('numB').value);
+            let C = parseFloat(document.getElementById('numC').value);
+            let delta = (Math.pow(B, 2) - 4 * A * C);
+            if(isNaN(A)||isNaN(B)||isNaN(C)){
+                alert("Chưa nhập A, B, C hoặc cả 3");
+            }
+             else if (A === 0) {
+                switch (B === 0 && C === 0 ? 0 : B === 0 && C !== 0 ? 1 : B !== 0) {
+                    case 0:
+                        alert("Vô số nghiệm");
+                        break;
+                    case 1:
+                        alert("Vô nghiệm");
+                        break;
+                    default:
+                        alert("Nghiệm X = " + (-C / B))
+                }
+            }
+            else {
+                switch (delta < 0 ? 1 : delta === 0 ? 2 : delta > 0) {
+                    case 1:
+                        alert("Phương trình vô nghiệm");
+                        break;
+                    case 2:
+                        x1 = (-B / (2 * A))
+                        alert("Phương trình có nghiệm X = " + x1);
+                        break;
+                    default:
+                        x1 = ((-B - Math.sqrt(delta)) / (4 * A));
+                        x2 = ((-B + Math.sqrt(delta)) / (4 * A));
+                        alert("Phương trình có nghiệm X1 = " + x1 + ", X2 = " + x2);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
