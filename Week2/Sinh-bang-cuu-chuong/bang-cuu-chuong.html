@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[Bài tập] Sinh bảng cửu chương</title>
+</head>
+
+<body>
+    <h1>Bảng cửu chương</h1>
+    <table border="2px" style="text-align: left; width: 1000px; height: 250px;">
+        <tr id="b2"></tr>
+        <tr id="b3"></tr>
+        <tr id="b4"></tr>
+        <tr id="b5"></tr>
+        <tr id="b6"></tr>
+        <tr id="b7"></tr>
+        <tr id="b8"></tr>
+        <tr id="b9"></tr>
+
+    </table>
+    <script>
+        let bang2 = '';
+        bang3 = '';
+        bang4 = '';
+        bang5 = '';
+        bang6 = '';
+        bang7 = '';
+        bang8 = '';
+        bang9 = '';
+        for (i = 2; i < 10; i++) {
+            bang2 += "<td>" + i + " x 2 = " + 2 * i + "</td>";
+            bang3 += "<td>" + i + " x 3 = " + 3 * i + "</td>";
+            bang4 += "<td>" + i + " x 4 = " + 4 * i + "</td>";
+            bang5 += "<td>" + i + " x 5 = " + 5 * i + "</td>";
+            bang6 += "<td>" + i + " x 6 = " + 6 * i + "</td>";
+            bang7 += "<td> " + i + " x 7 = " + 7 * i + "</td>";
+            bang8 += "<td>" + i + " x 8 = " + 8 * i + "</td>";
+            bang9 += "<td>" + i + " x 9 = " + 9 * i + "</td>";
+        }
+        document.getElementById('b2').innerHTML = bang2;
+        document.getElementById('b3').innerHTML = bang3;
+        document.getElementById('b4').innerHTML = bang4;
+        document.getElementById('b5').innerHTML = bang5;
+        document.getElementById('b6').innerHTML = bang6;
+        document.getElementById('b7').innerHTML = bang7;
+        document.getElementById('b8').innerHTML = bang8;
+        document.getElementById('b9').innerHTML = bang9;
+    </script>
+</body>
+
+</html>
