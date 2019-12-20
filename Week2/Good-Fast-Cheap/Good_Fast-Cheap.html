@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>[*Bài tập] Ứng dụng good-fast-cheap</title>
+</head>
+
+<body onchange="check()">
+  <input type="checkbox" id="good"> <label for="good">Good</label>
+  <input type="checkbox" id="cheap"> <label for="Fast">Fast</label>
+  <input type="checkbox" id="fast"> <label for="Cheap">Cheap</label>
+  <script>
+    function check() {
+      let good = document.getElementById('good').checked;
+      let fast = document.getElementById('fast').checked;
+      let cheap = document.getElementById('cheap').checked;
+      console.log(good, fast, cheap);
+      switch (!good ? 0 : !fast ? 1 : !cheap) {
+        case 0:
+          document.getElementById('good').checked = false;
+          document.getElementById('fast').checked = true;
+          document.getElementById('cheap').checked = true;
+          break;
+        case 1:
+          document.getElementById('good').checked = true;
+          document.getElementById('fast').checked = false;
+          document.getElementById('cheap').checked = true;
+          break;
+        default:
+          document.getElementById('good').checked = true;
+          document.getElementById('fast').checked = true;
+          document.getElementById('cheap').checked = false;
+
+      }
+    }
+    window.onload = check;
+  </script>
+</body>
+
+</html>
