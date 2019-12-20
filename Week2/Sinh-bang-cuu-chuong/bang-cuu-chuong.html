@@ -19,24 +19,25 @@
         <tr id="b7"></tr>
         <tr id="b8"></tr>
         <tr id="b9"></tr>
-
+        <tr id="b10"></tr>
     </table>
     <script>
-        let bang2 = '';
-        bang3 = '';
-        bang4 = '';
-        bang5 = '';
-        bang6 = '';
-        bang7 = '';
-        bang8 = '';
-        bang9 = '';
-        for (i = 2; i < 10; i++) {
+        let bang2 = '',
+            bang3 = '',
+            bang4 = '',
+            bang5 = '',
+            bang6 = '',
+            bang7 = '',
+            bang8 = '',
+            bang9 = '',
+            bang10 = '';
+        for (i = 2; i <= 10; i++) {
             bang2 += "<td>" + i + " x 2 = " + 2 * i + "</td>";
             bang3 += "<td>" + i + " x 3 = " + 3 * i + "</td>";
             bang4 += "<td>" + i + " x 4 = " + 4 * i + "</td>";
             bang5 += "<td>" + i + " x 5 = " + 5 * i + "</td>";
             bang6 += "<td>" + i + " x 6 = " + 6 * i + "</td>";
-            bang7 += "<td> " + i + " x 7 = " + 7 * i + "</td>";
+            bang7 += "<td>" + i + " x 7 = " + 7 * i + "</td>";
             bang8 += "<td>" + i + " x 8 = " + 8 * i + "</td>";
             bang9 += "<td>" + i + " x 9 = " + 9 * i + "</td>";
         }
@@ -48,6 +49,7 @@
         document.getElementById('b7').innerHTML = bang7;
         document.getElementById('b8').innerHTML = bang8;
         document.getElementById('b9').innerHTML = bang9;
+
     </script>
 </body>
 
