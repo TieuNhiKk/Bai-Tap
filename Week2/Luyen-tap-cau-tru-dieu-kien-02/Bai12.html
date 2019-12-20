@@ -1,15 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>[*Bài tập] Luyện tập cấu trúc điều kiện 02 - Bài 12</title>
 </head>
+
 <body>
     <!-- Bài 12: Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lại con) khi biết số tiền ban đầu, số tháng cho vay và lãi xuất hàng tháng. -->
-    <input type="number" id="tiengoc">
-    <input type="number" id="sothang">
-    <input type="number" id="laisuat">
+    Số tiền gửi(VND):<br>
+    <input type="number" id="tiengui"><br><br>
+    Số tháng cho vay(VND):<br>
+    <input type="number" id="thang"><br><br>
+    Lãi xuất hàng tháng(VND):<br>
+    <input type="number" id="laisuat" placeholder="Nhập số theo %"><br><br>
+    <button type="button" onclick="calc()">Tính tiền lãi</button>
+    <div id="ketqua"></div>
+    <script>
+        function calc() {
+            let tiengui = parseInt(document.getElementById("tiengui").value);
+            let thang = parseInt(document.getElementById("thang").value);
+            let laisuat = parseFloat(document.getElementById("laisuat").value)/100;
+            if (tiengui > 0 && thang > 0 && laisuat >= 0)
+            {
+                let tienlai = 0;
+                for (let i = 1; i <= thang; i++) {
+                    tienlai += tiengui * laisuat;
+                    tiengui += tiengui * laisuat;
+                }
+                document.getElementById("ketqua").innerHTML = "Tổng tiền lãi: " + tienlai + "<br>Tổng cả vốn lẫn lãi: " + tiengui;
+            }
+            else {
+                document.getElementById("ketqua").innerHTML = "Nhập sai!";
+            }
+        }
+    </script>
 </body>
+
 </html>
