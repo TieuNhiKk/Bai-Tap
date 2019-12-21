@@ -1,13 +1,57 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>[*Bài tập] Luyện tập cấu trúc điều kiện 01 - Bài 7</title>
 </head>
+
 <body>
     <!-- Bài 7: Tính cước điện thoại cho một hộ gia đình với các thông số đã cho -->
-    
+    <h1>Tính cước di động</h1>
+    <div style="line-height: 2em; margin-left: 2em;" onchange="result()">
+        <p>Nhập vào số phút, giây cách nhau bằng dấu chấm và ấn Enter</p>
+        <input type="number" id="time" placeholder="1 phút 10 giây nhập 1.10" required ><br>
+        <label><input type="radio" name="network" id="inn" checked>Gọi nội mạng</label><br>
+        <label><input type="radio" name="network" id="out">Gọi ngoại mạng</label><br>
+        <input type="reset" value="reset"><br>
+        <p>Kết quả: <span id='result'>0</span> VNĐ</p>
+        <script>
+            function result() {
+                let times = parseFloat(document.getElementById('time').value);
+                let inn = document.getElementById('inn').checked;
+                let out = document.getElementById('out').checked;
+                let result = document.getElementById('result');
+                let money = 0;
+                if (times <= 0.06 && times > 0) {
+                    switch (inn) {
+                        case true:
+                            money += 200;
+                            break;
+                        default:
+                            money += 250;
+                    }
+                }
+                else if (times > 0.06) {
+                    times = Math.ceil(times);
+                    switch (inn) {
+                        case true:
+                            money = times * 1300;
+                            break;
+                        default:
+                            money = times * 1500;
+                    }
+                }
+                else {
+                    alert("Error!!!")
+                }
+                result.innerHTML = money;
+            }
+            window.onchange=result
+        </script>
+    </div>
 </body>
+
 </html>
