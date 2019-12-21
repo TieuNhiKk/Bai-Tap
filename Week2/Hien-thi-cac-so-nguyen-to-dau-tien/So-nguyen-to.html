@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[Bài tập] Hiển thị các số nguyên tố đầu tiên</title>
+</head>
+
+<body>
+    <script>
+        let numbers = parseInt(prompt("Enter"));
+        let count = 0;
+        let N = 2;
+        for (let i = 2; i >= N; i++) {
+            if (count === numbers) {
+                document.write('<br>Numbers = ' + numbers)
+                break;
+            }
+            if (i % N !== 0||i==2) {
+                let M = true;
+                for (let j = 2; j < i; j++) {
+                    if (i % j === 0) {
+                        M = false;
+                    }
+                }
+                if (M) {
+                    count += 1;
+                    document.write(i + " ");
+                }
+                else {
+                    continue;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
