@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[*Bài tập] Luyện tập vòng lặp 01- Bài 8</title>
+</head>
+
+<body>
+    <!-- Bài 8: Game đoán số -->
+    <h1>Trò chơi nhân phẩm</h1>
+    <input type="button" value="Đỏ đen" onclick="random()">
+    <script>
+        function random() {
+            let first = parseFloat(prompt("Nhập vào khoảng số thấp nhất cần đoán:"));
+            let second = parseFloat(prompt("Nhập vào khoảng số cao nhất cần đoán:"));
+            let divine = parseFloat(prompt("Nhập vào số bạn muốn đoán"));
+            let loto = Math.round(Math.random() * (second - first)) + first;
+            console.log(loto);
+            while(true){
+                let win=(divine===loto);
+                if(win){
+                    alert("Hết hơi trò chơi kết thúc");
+                    break;
+                }
+                else if(divine>loto){
+                   divine=parseFloat(prompt("Lớn hơn rồi chọn lại"));
+                }
+                else if(divine<loto){
+                    divine=parseFloat(prompt("Nhỏ hơn rồi chọn lại"));
+                }
+                else{
+                    alert("Chưa đến chợ đã hết tiền. Nhập sai");
+                    break;
+                }
+
+            }
+        }
+    </script>
+    </h1>
+</body>
+
+</html>
