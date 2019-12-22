@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[*Bài tập] Luyện tập vòng lặp 02</title>
+</head>
+
+<body>
+    <!-- Bài 2: Tính giai thừa của một số nguyên dương -->
+    <script>
+        let num = parseInt(prompt('Enter a number'));
+        let result = 1;
+        for (let i = 1; i <= num||num===0; i++) {
+            result *= i;
+            if (i === num||num===0) {
+                document.write(num + "! = " + result);
+                break;
+            }
+        }
+    </script>
+</body>
+
+</html>

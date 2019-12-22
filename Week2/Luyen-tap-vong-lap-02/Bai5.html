@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[*Bài tập] Luyện tập vòng lặp 02</title>
+</head>
+
+<body>
+    <!-- Bài 5: Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lại con) khi biết số tiền ban đầu, số tháng cho vay và lãi xuất hàng tháng -->
+    <h1>Tính lãi ngân hàng</h1>
+    <input type="number" id="Tiengoc" placeholder="Số tiền gửi" required>
+    <input type="number" id="Laisuat" placeholder="Lãi suất (1.2% ghi 1.2)" required>
+    <input type="number" id="month" placeholder="Số tháng cho vay" required>
+    <input type="button" value="Tính lãi" onclick="rich()">
+    <p>Kết quả:</p>
+    <p>Số tiền lãi: <span id="Tienlai"></span></p>
+    <p>Tổng số tiền nhận được: <span id="Tong"></span></p>
+
+    <script>
+        function rich() {
+            let Tiengoc = parseFloat(document.getElementById('Tiengoc').value);
+            let Laisuat = parseFloat(document.getElementById('Laisuat').value) / 100;
+            let month = parseInt(document.getElementById('month').value);
+            let Tienlai = document.getElementById('Tienlai');
+            let Tong = document.getElementById('Tong');
+            let sum = Tiengoc;
+            let sums = 0;
+            console.log(Tiengoc, Laisuat, month);
+            if (isNaN(Tiengoc) || isNaN(Laisuat) || isNaN(month)) {
+                alert("Nhập thiếu hoặc nhập sai");
+            }
+            else {
+                for (let i = 0; i <= month; i++) {
+                    if (Tiengoc >= 0 && month > 0 && Laisuat >= 0) {
+                        sums = sum * Laisuat + sum;
+                        sum = sums;
+                    }
+                    else {
+                        alert("Nhập sai");
+                        break;
+                    }
+                }
+                Tienlai.innerHTML = (sum - Tiengoc).toFixed(2) + " VNĐ";
+                Tong.innerHTML = sum.toFixed(2) + " VNĐ";
+            }
+        }
+    </script>
+</body>
+
+</html>

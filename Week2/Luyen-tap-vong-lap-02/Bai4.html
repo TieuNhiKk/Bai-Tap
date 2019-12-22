@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[*Bài tập] Luyện tập vòng lặp 02</title>
+</head>
+
+
+<body style="line-height: 0.5em;">
+    <!-- Bài 4: In hình chữ nhật -->
+    <script>
+        let y=parseInt(prompt("Nhập vào chiều cao"));
+        let x=parseInt(prompt("Nhập vào chiều rộng"));
+for(let i=1; i<=y;i++){
+    for(let j=1; j<=x;j++){
+        if(i===1||i===y){
+            document.write("*");
+            continue;
+        }
+        if(j===1||j===x){
+            document.write("*");
+            continue;
+        }
+        document.write("&nbsp;&nbsp;");
+    }
+    document.write("<br>");
+}
+    </script>
+</body>
+
+</html>

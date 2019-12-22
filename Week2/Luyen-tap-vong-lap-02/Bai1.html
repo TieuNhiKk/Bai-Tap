@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[*Bài tập] Luyện tập vòng lặp 02</title>
+</head>
+
+<body style="text-align: center; word-spacing:unset;">
+    <!-- Bài 1: In dãy Finonaci -->
+    <script>
+        let Fib = 1;
+        let num = 6;
+        let sum = 0;
+        let i = 0;
+        let Old = 0;
+        while (sum < num) {
+            Fib += Old;
+            Old = i;
+            i = Fib;
+            for(let j =0; j<=sum; j++){
+                document.write(Fib + "&nbsp;")
+            }
+            sum++;
+            document.write("<br>");
+        }
+    </script>
+</body>
+
+</html>
