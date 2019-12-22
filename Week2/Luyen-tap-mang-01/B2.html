@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[*Bài tập] Luyện tập mảng 01</title>
+</head>
+
+<body>
+    <!-- Bài 2- Viết chương trình khởi tạo mảng số nguyên gồm 10 phần tử khác nhau. Chương trình hiển thị ra được phần tử có giá trị lớn nhất trong mảng và vị trí của phần tử đó -->
+    <script>
+        let array = [];
+        let newarr = [];
+        let sum = 0;
+        for (let i = 1; i <= 10; i++) {
+            array.push(parseInt(prompt("Nhập vào số nguyên làm phần tử " + i)));
+            if (isNaN(array[i - 1])) {
+                array.pop();
+                alert("Nhập sai nhập lại");
+                i -= 1;
+                continue;
+            }
+        }
+        let max=array[0];
+        for (let i = 0; i < array.length; i++) {
+            if (array[i+1] >=max ) {
+                max=array[i+1];
+                index=i+1;
+            }
+        }
+        document.write("<h1>Dãy số " + array + " có số lớn nhất là " + max + " tại vị trí index = " + index + "</h1>");
+    </script>
+</body>
+
+</html>
