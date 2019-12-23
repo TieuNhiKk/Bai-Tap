@@ -1,16 +1,45 @@
 ﻿<!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>[*Bài tập] Luyện tập vòng lặp 02</title>
 </head>
+
 <body>
     <!-- Bài 6: In hình trái tim -->
     <script>
-    
-    
+        for (let i = 0; i < 20; i++) {
+            if (i < 3 || i > 16 || i === 9 || i === 10) {
+                document.write('&ensp;');
+            } else {
+                document.write('*');
+            }
+        }
+        document.write('<br>');
+        for (i = 0; i <= 3; i++) {
+            for (let j = 0; j < 20; j++) {
+                document.write('*');
+            }
+            document.write('<br>');
+        }
+        let left = 1;
+        right = 17;
+        for (i = 0; i < 6; i++) {
+            for (j = 0; j < 20; j++) {
+                if (j < left || j > right) {
+                    document.write('&ensp;');
+                } else {
+                    document.write('*');
+                }
+            }
+            left += 2;
+            right -= 2;
+            document.write('<br>');
+        }
     </script>
 </body>
+
 </html>
