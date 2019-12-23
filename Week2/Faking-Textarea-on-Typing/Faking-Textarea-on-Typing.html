@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[*Bài tập] Ứng dụng vui Faking Textarea on Typing</title>
+</head>
+
+<body>
+    <center>
+        <h2>Faking Textarea on Typing</h2>
+        <form name="f">
+            <textarea name="txt" cols="40" rows="10" onkeydown="typeTextarea();"></textarea>
+        </form>
+    </center>
+    <script>
+        let array="Ứng dụng vui Faking Textarea on Typing";
+        let string=array.toString();
+        let n='';
+            function typeTextarea() {
+                t = document.f.txt.value;
+                j = t.length;
+                if (j > 0) {
+                    for (var i = 1; i <= j; i++) {
+                        n = n + string[i-1];
+                        if (i == string.length) {
+                            document.f.txt.value = "";
+                            n = "";
+                        }
+                    }
+                }
+                document.f.txt.value = n;
+                n = "";
+                setTimeout("typeTextarea()", 1);
+            }
+        </script>
+
+</body>
+
+</html>
