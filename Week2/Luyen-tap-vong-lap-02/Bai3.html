@@ -11,6 +11,7 @@
 <body>
     <!-- Bài 3: In tam giác vuông. Các góc vuông nằm ở các vị trí khác nhau -->
     <script>
+        //Tam giác 1
         for (let i = 0; i < 8; i++) {
             for (let j = 0; j < i; j++) {
                 document.write("*");
@@ -18,31 +19,28 @@
             document.write("<br>");
         }
         document.write("<hr>");
+        //Tam giác số 2
         for (let i = 8; i > 0; i--) {
             for (let j = 0; j < i; j++) {
                 document.write("*");
             }
             document.write("<br>");
         }
-
         document.write("<hr>");
+        //Tam giác số 3
         let x = ["*", "*", "*", "*", "*", "*", "*", "*", "*"];
         let y = "&nbsp;&nbsp;";
         for (let i = 0; i <= x.length - 1; i++) {
-            for (let j = 0; j <= i; j++) {
-                x[i] = y;
-            }
+            x[i] = y;
             document.write(x.join(''));
             document.write("<br>");
         }
         document.write("<hr>");
-        let temp="&nbsp;&nbsp;"
-        let a = [temp,temp,temp,temp,temp,temp,temp,temp];
+        //Tam giác số 4
+        let a = [y, y, y, y, y, y, y, y];
         let b = "*";
-        for (let i = a.length-1; i >=0; i--) {
-            for (let j = 0; j <= i; j++) {
-                a[i] = b;
-            }
+        for (let i = a.length - 1; i >= 0; i--) {
+            a[i] = b;
             document.write(a.join(''));
             document.write("<br>");
         }
