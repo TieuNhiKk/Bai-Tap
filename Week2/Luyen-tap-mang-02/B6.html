@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[*Bài tập] Luyện tập mảng 02</title>
+</head>
+
+<body>
+    <!-- Bài 6: Viết chương trình nhập vào một mảng ký tự, tìm tất cả các ký tự trong mảng là (-) và thay thế các ký tự này bởi ký tự ( _ ) -->
+    <script>
+        let input = prompt("Enter the strings");
+        let array = input.toString();
+        console.log(array);
+        let result = [];
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] === '-') {
+                result.push("_");
+                continue;
+            }
+            result.push(array[i]);
+        }
+        document.write("<h1>Mảng: " + array + "</h1>");
+        document.write("<h1>Mảng sau chuyển đổi: " + result.join('') + "</h1>") 
+    </script>
+</body>
+
+</html>

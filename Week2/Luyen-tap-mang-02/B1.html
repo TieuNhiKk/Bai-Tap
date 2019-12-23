@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[*Bài tập] Luyện tập mảng 02</title>
+</head>
+
+<body>
+    <!-- Bài 1: Viết chương trình khởi tạo mảng 2 chiều, gồm một bộ các phần tử có sẵn,  in ra các phần tử trong mảng. Chú ý: Sử dụng vòng lặp for lồng nhau -->
+    <script>
+        let array = new Array(5);
+        for (let i = 0; i < 10; i++) {
+            document.write("row "+i+ "<br>");
+            array[i] = new Array(3)
+            for (let j = 0; j < 3; j++) {
+                array[i][j] = Math.round(Math.random() * 10);
+                document.write(array[i][j]+'<br>');
+            }
+        }
+    </script>
+</body>
+
+</html>

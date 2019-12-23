@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[*Bài tập] Luyện tập mảng 02</title>
+</head>
+
+<body>
+    <!-- Bài 4: Viết một chương trình để đếm số từ trong một chuỗi -->
+    <script>
+        let string = 'abc abv 12 hg';
+        let word = string.toString();
+        //console.log(word[4] === " ");
+        let sum = 0;
+        for (let i = 1; i < word.length; i++) {
+            if (isNaN(word[i - 1]) && word[i] === " ") {
+                sum += 1;
+            }
+            if (i === word.length - 1&& isNaN(word[i])) {
+                sum += 1;
+            }
+        }
+        document.write("<h1>Chuỗi: " + string + "</h1>");
+        document.write("<h1>Số từ: " + sum + "</h1>");
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[*Bài tập] Luyện tập mảng 02</title>
+</head>
+
+<body>
+    <!-- Bài 3: Viết một chương trình khai báo một mảng ký tự và kích thước của mảng. Chương trình này đếm số ký tự số trong mảng.  -->
+    <script>
+        let num = parseInt(prompt("Nhập vào kích thước của mảng"));
+        let array = new Array(num);
+        let sum = 0;
+        if (num <= 0 || isNaN(num)) {
+            alert("Nhập sai");
+        }
+        else {
+            for (let i = 0; i < num; i++) {
+                array[i] = prompt("Nhập vào phần tử thứ " + (i + 1));
+                if (isNaN(array[i])) {
+                    sum += 1;
+                }
+            }
+        }
+        document.write("<h1>Mảng: " + array + "</h1>");
+        document.write("<h1>Kích thước: " + num + "</h1>");
+        document.write("<h1>Ký tự số: " + (num - sum) + "</h1>");
+    </script>
+</body>
+
+</html>
