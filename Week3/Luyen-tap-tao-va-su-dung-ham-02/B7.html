@@ -1,12 +1,32 @@
 ﻿<!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>[Bài tập] Luyện tập tạo và sử dụng hàm 02</title>
 </head>
+
 <body>
     <!-- Bài 7: Viết hàm truyền vào 2 số nguyên bất kì, thực hiện đổi chỗ hai số nguyên đó. -->
+    <script>
+        function reverse(a, b) {
+            let temp = a;
+            a = b;
+            b = temp;
+            return `a = ${a} b = ${b}`;
+        }
+        let a = parseInt(prompt("Enter a integer a"));
+        let b = parseInt(prompt("Enter a integer b"));
+        let result = `after ${reverse(a, b)}`;
+        if (isNaN(a&&b)) {
+            alert("error");
+        }
+        else {
+            alert(`before a = ${a} b = ${b} ${result}`);
+        }
+    </script>
 </body>
+
 </html>
