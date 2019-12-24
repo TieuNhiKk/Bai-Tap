@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[Bài tập] Hàm kiểm tra số nguyên tố</title>
+</head>
+
+<body>
+    <script>
+        function isPrime(number) {
+            if (number === 2) {
+                return true;
+            }
+            else {
+                for (let i = 2; i <= number; i++) {
+                    if (number % i == 0) {
+                        return false;
+                    }
+                    else {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        function checkPrime(number) {
+            if (isPrime(number)) {
+                return `${number} is Prime`;
+            }
+            else {
+                return `${number} is not Prime`;
+            }
+        }
+        let num = parseInt(prompt("Enter a number"));
+        let result = checkPrime(num);
+        document.write(result);
+    </script>
+</body>
+
+</html>
