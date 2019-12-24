@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[Bài tập] Chuyển đổi giữa feet và meters</title>
+</head>
+
+<body>
+    <h1>feet,meters converter</h1>
+    <p><input type="number" id="firstvalue" oninput="Convert(this.value)" onchange="Convert(this.value)"
+            placeholder="Enter a number">
+        <p>
+            <input type="radio" name="static" id="metofe" onclick="Convert(firstvalue.value)" checked><label>Meters to
+                feet</label>
+            <input type="radio" name="static" id="fetome" onclick="Convert(firstvalue.value)"><label>Feet to
+                meters</label>
+        </p>
+    </p>
+    <p>Result: <span id="result"></span></p>
+    <script>
+        function Convert(value) {
+            let mtf = document.getElementById("metofe");
+            let ftm = document.getElementById('fetome');
+            let result = document.getElementById("result");
+            if (value < 0 || isNaN(value)) {
+                result.innerHTML = "value < 0 or is not number"
+            }
+            else if (mtf.checked) {
+                result.innerHTML = 3.297 * value + " feed";
+            }
+            else if (ftm.checked) {
+                result.innerHTML = 0.305 * value + " meter";
+            }
+        }
+    </script>
+</body>
+
+</html>
