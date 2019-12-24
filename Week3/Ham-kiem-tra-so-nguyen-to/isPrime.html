@@ -11,31 +11,28 @@
 <body>
     <script>
         function isPrime(number) {
-            if (number === 2) {
-                return true;
+            if (isNaN(number)) {
+                return "Input is not number!"
+            }
+            else if (number === 2) {
+                return `${number} is Prime`;
+            }
+            else if (number < 2) {
+                return `${number} is not Prime`;
             }
             else {
-                for (let i = 2; i <= number; i++) {
+                for (let i = 2; i < number; i++) {
                     if (number % i == 0) {
-                        return false;
+                        return `${number} is not Prime`;
                     }
                     else {
-                        return true;
+                        return `${number} is Prime`;
                     }
                 }
             }
         }
-
-        function checkPrime(number) {
-            if (isPrime(number)) {
-                return `${number} is Prime`;
-            }
-            else {
-                return `${number} is not Prime`;
-            }
-        }
         let num = parseInt(prompt("Enter a number"));
-        let result = checkPrime(num);
+        let result = isPrime(num);
         document.write(result);
     </script>
 </body>
