@@ -1,12 +1,35 @@
 ﻿<!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>[Bài tập] Luyện tập tạo và sử dụng hàm 02</title>
 </head>
+
 <body>
     <!-- Bài 9: Viết hàm truyền vào một mảng ký tự, và một ký tự bất kỳ, kiểm tra xem ký tự bất kỳ đó có nằm trong mảng không. Nếu có trả về số lần xuất hiện của ký tự đó, nếu không trả về -1.  -->
+    <script>
+        let sum = 0;
+        function search(arr, a) {
+            if (arr.indexOf(a) !== -1) {
+                for (let i = 0; i < arr.length; i++) {
+                    if (a === arr[i]) {
+                        sum += 1;
+                    }
+                }
+                return `Chuỗi ${arr} có ${sum} ký tự ${a}`;
+            }
+            else {
+                return -1;
+            }
+        }
+        let array = prompt("Enter an Array");
+        let letter = prompt("Enter a characters");
+        let result = search(array, letter);
+        document.write(result);
+    </script>
 </body>
+
 </html>

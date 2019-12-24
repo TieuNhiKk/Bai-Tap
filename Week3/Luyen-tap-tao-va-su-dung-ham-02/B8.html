@@ -8,5 +8,15 @@
 </head>
 <body>
     <!-- Bài 8: Viết hàm truyền vào mảng số nguyên bất kỳ, sau đó đảo ngược mảng số nguyên đó. -->
+    <script>
+    function reverse(arr){
+        return arr.reverse();
+    }
+    let array=[];
+    for(let i=0;i<10;i++){
+        array[i]=Math.ceil(Math.random()*100);
+    }
+document.write(`Array before: ${array} <br> Array after: ${reverse(array)}`)
+    </script>
 </body>
 </html>
