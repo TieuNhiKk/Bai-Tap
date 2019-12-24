@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[Bài tập] Luyện tập tạo và sử dụng hàm 02</title>
+</head>
+
+<body>
+    <!-- Bài 2: Viết hàm tính diện tích, hàm tính chu vi hình tròn. Gọi hàm vừa xây dựng được -->
+    <script>
+        function area(r) {
+            return Math.PI * Math.pow(r, 2);
+        }
+        function circum(r) {
+            return Math.PI * 2 * r;
+        }
+        let R = parseFloat(prompt("Enter radius"));
+        let AREA = area(R).toFixed(2);
+        let CIRCUM = circum(R).toFixed(2);
+        document.write(`Bán kính: ${R} <br> Chu vi: ${CIRCUM} <br> Diện tích: ${AREA}`);
+    </script>
+</body>
+
+</html>

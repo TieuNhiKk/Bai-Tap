@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[Bài tập] Luyện tập tạo và sử dụng hàm 02</title>
+</head>
+
+<body>
+    <!-- Bài 1: Viết hàm tính bình phương của một số bất kỳ được đưa vào. Gọi hàm vừa xây dựng được. -->
+    <script>
+        function square(number) {
+            return Math.pow(number, 2);
+        }
+
+        let number = parseFloat(prompt("Enter a number"));
+        if (isNaN(number)) {
+            alert("Nhập sai");
+        }
+        else {
+            document.write(square(number));
+        }
+    </script>
+</body>
+
+</html>
