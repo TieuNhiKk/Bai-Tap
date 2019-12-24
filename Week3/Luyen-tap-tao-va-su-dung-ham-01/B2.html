@@ -9,11 +9,13 @@
 <body>
     <!-- Bài 2: Tạo hàm nhận vào một đối số dạng số, tăng giá trị đối số đó lên 1 và trả lại giá trị cho lời gọi hàm. Gọi hàm từ trong phần <body> của trang web và hiển thị kết quả lên màn hình. -->
         <label>Input X</label>
-        <input type="number" oninput="func(this.value)">
-        <p>2<sup>X</sup> = <span id="result"></span></p>
+        <input type="number" oninput="func(parseInt(this.value))">
+        <p>arguments = <span id="result"></span></p>
         <script>
-        function func(value){
-            document.getElementById("result").innerHTML= Math.pow(2,value)
+        function func(){
+            let first=arguments[0];
+            let second=arguments[0]+1;
+            document.getElementById("result").innerHTML=second;
         }
         </script>
 </body>
