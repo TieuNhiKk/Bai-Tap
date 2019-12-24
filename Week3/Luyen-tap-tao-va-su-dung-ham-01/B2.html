@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[Bài tập] Luyện tập tạo và sử dụng hàm 01</title>
+</head>
+<body>
+    <!-- Bài 2: Tạo hàm nhận vào một đối số dạng số, tăng giá trị đối số đó lên 1 và trả lại giá trị cho lời gọi hàm. Gọi hàm từ trong phần <body> của trang web và hiển thị kết quả lên màn hình. -->
+        <label>Input X</label>
+        <input type="number" oninput="func(this.value)">
+        <p>2<sup>X</sup> = <span id="result"></span></p>
+        <script>
+        function func(value){
+            document.getElementById("result").innerHTML= Math.pow(2,value)
+        }
+        </script>
+</body>
+</html>

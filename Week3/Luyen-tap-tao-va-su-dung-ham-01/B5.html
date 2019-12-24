@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[Bài tập] Luyện tập tạo và sử dụng hàm 01</title>
+</head>
+
+<body>
+    <script>
+        let star = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+        let STAR=[];
+        for (let i=0; i<star.length;i++){
+            STAR.push(star[i].toLowerCase());
+        }
+        let constellation = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+        function search(Star) {
+            let abs=Star.toLowerCase();
+            let legend = STAR.indexOf(abs);
+            if (legend === -1) {
+                return `Please Enter Polaris, Aldebaran, Deneb, Vega, Altair, Dubhe or Regulus`;
+            }
+            else{
+                return `Constellation of ${Star} is ${constellation[legend]}`
+            }
+        }
+        let Star=prompt("Enter a star name");
+        let result=search(Star);
+        document.write(result);
+    </script>
+</body>
+
+</html>

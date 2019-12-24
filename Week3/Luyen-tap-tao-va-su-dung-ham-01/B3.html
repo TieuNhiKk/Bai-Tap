@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[Bài tập] Luyện tập tạo và sử dụng hàm 01</title>
+</head>
+
+<body>
+    <!-- Bài 3: Tạo hàm nhận vào hai tham số. Nếu giá trị của tham số thứ nhất lớn hơn tham số thứ hai, hiển thị hộp thoại thông báo cho người dùng. Nếu giá trị của tham số thứ nhất nhỏ hơn hoặc bằng tham số thứ hai, trả về tổng của hai tham số. -->
+    <script>
+        function compare(a, b) {
+            if (a > b) {
+                alert(`${a} > ${b}`);
+            }
+            else {
+                document.write(`Sum ${a} + ${b} is ${a + b}`);
+            }
+        }
+        let a = parseFloat(prompt("Enter number a"));
+        let b = parseFloat(prompt("Enter number b"));
+        compare(a, b);
+    </script>
+</body>
+
+</html>
