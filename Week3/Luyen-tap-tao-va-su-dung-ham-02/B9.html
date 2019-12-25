@@ -11,8 +11,11 @@
 <body>
     <!-- Bài 9: Viết hàm truyền vào một mảng ký tự, và một ký tự bất kỳ, kiểm tra xem ký tự bất kỳ đó có nằm trong mảng không. Nếu có trả về số lần xuất hiện của ký tự đó, nếu không trả về -1.  -->
     <script>
-        let sum = 0;
+
         function search(arr, a) {
+            arr = prompt("Enter an Array");
+            a = prompt("Enter a characters");
+            let sum = 0;
             if (arr.indexOf(a) !== -1) {
                 for (let i = 0; i < arr.length; i++) {
                     if (a === arr[i]) {
@@ -25,10 +28,11 @@
                 return -1;
             }
         }
-        let array = prompt("Enter an Array");
-        let letter = prompt("Enter a characters");
-        let result = search(array, letter);
-        document.write(result);
+        function result(){
+            let a=search()
+            document.write(a);
+        }
+        result();
     </script>
 </body>
 
