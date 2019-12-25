@@ -11,21 +11,39 @@
 <body>
     <!-- Bài 3: Viết hàm tính giai thừa của một số nguyên bất kỳ được đưa vào. Gọi hàm vừa xây dựng được. -->
     <script>
-        let mult = 1;
+        //Hàm tính giái thừa
         function abs(num) {
+            num=checkInt(num);
+            let mult = 1;
             for (let i = num; i > 0; i--) {
                 mult *= i;
             }
             return mult;
         }
-        let num = parseInt(prompt("Enter a number"));
-        if (isNaN(num) || num < 0) {
-            alert("Nhập sai");
+        //Hàm kiểm tra số nguyên
+        function checkInt(num) {
+            num = prompt("Enter");
+            if (num.length === 0) {
+                alert("Chưa nhập số");
+                checkInt();
+            }
+            else {
+                for (let i = 0; i < num.length; i++) {
+                    let number = parseInt(num[i]);
+                    if (isNaN(number)) {
+                        alert("Nhập sai");
+                        checkInt();
+                        break;
+                    }
+                }
+                return parseInt(num);
+            }
         }
-        else {
-            let result = abs(num);
-            document.write(`${num}! = ${result}`);
-        }
+    function main(){
+        let b = abs();
+        document.write(b);
+    }
+    main();
     </script>
 </body>
 

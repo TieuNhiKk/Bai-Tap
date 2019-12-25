@@ -20,17 +20,25 @@
             }
             return min;
         }
-
-        let num = []
-        for (let i = 0; i < 3; i++) {
-            num[i] = parseFloat(prompt('Enter number ' + (i + 1)));
-            if (isNaN(num[i])) {
-                alert("Không phải là số nguyên nhập lại");
-                i -= 1;
+        function input() {
+            let num = []
+            for (let i = 0; i < 3; i++) {
+                num[i] = parseInt(prompt('Enter number ' + (i + 1)));
+                if (isNaN(num[i])) {
+                    alert("Không phải là số nguyên nhập lại");
+                    i -= 1;
+                }
             }
+            return num;
         }
-        let result = minvalue(num);
-        document.write(`min = ${result}`);
+
+        function main() {
+            let Int = input();
+            let min = minvalue(Int);
+            document.write(min);
+
+        }
+        main();
     </script>
 </body>
 

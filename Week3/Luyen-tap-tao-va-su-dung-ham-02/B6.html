@@ -20,15 +20,21 @@
             }
             return false;
         }
-        let num = parseInt(prompt("Enter a Integer"));
-        let result = integer(num);
-        console.log(result);
-        if (isNaN(num)) {
-            alert("error!!!");
+        function input() {
+            let num = parseInt(prompt("Enter a Integer"));
+            let result = integer(num);
+            if (isNaN(num)) {
+                return "error!!!";
+            }
+            else {
+                return result;
+            }
         }
-        else {
-            alert(result);
+        function main(){
+            let int=input();
+            alert(int);
         }
+        main();
     </script>
 </body>
 
