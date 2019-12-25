@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[*Bài tập] Kiểm tra từ đối xứng</title>
+</head>
+
+<body>
+    <script>
+        function isPalindrome(s) {
+            s = prompt("Enter a string").trim();
+            let j = s.length - 1;
+            if (j < 2) {
+                alert("Chuỗi quá ngắn\nNhập lại!");
+                return isPalindrome();
+            }
+            if (s[0] === s[j]) {
+                for (let i = 1; i <= j / 2; i++) {
+                    if (s[i] === s[j - i]) {
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
+                }
+            }
+            else {
+                return false;
+            }
+        }
+
+
+        function main() {
+            alert("Palindrome \n" + isPalindrome());
+            main();
+        }
+
+
+        main();
+
+
+    </script>
+</body>
+
+</html>
