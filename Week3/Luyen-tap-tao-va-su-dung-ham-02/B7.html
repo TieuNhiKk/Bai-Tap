@@ -17,15 +17,22 @@
             b = temp;
             return `a = ${a} b = ${b}`;
         }
-        let a = parseInt(prompt("Enter a integer a"));
-        let b = parseInt(prompt("Enter a integer b"));
-        let result = `after ${reverse(a, b)}`;
-        if (isNaN(a&&b)) {
-            alert("error");
+        function check() {
+            let a = parseInt(prompt("Enter a integer a"));
+            let b = parseInt(prompt("Enter a integer b"));
+            let result = `after ${reverse(a, b)}`;
+            if (isNaN(a && b)) {
+                alert("error");
+            }
+            else {
+                alert(`before a = ${a} b = ${b} ${result}`);
+            }
         }
-        else {
-            alert(`before a = ${a} b = ${b} ${result}`);
+        function ads() {
+            let a = check();
+            reverse(a);
         }
+        ads();
     </script>
 </body>
 
