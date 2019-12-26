@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[Bài tập] Xây dựng lớp mô tả hình chữ nhật</title>
+</head>
+
+<body>
+    <canvas id="anvat" width="300" height="200" style="border: 1px solid #161616;"></canvas>
+    <script>
+        function Rectangle(width, height) {
+            this.width = width;
+            this.height = height;
+            this.getWidth = function () {
+                return this.width;
+            }
+            this.getHeight = function () {
+                return this.height;
+            }
+            this.getArea = function () {
+                return this.width * this.height;
+            }
+            this.getCircum = function () {
+                return 2 * (this.height * this.width);
+            }
+        }
+        let wid=parseFloat(prompt("Nhập vào chiều dài"));
+        let hei=parseFloat(prompt("Nhập vào chiều rộng"));
+        let rectangle = new Rectangle(wid, hei);
+        let Area = rectangle.getArea();
+        let Circum = rectangle.getCircum();
+        let cd = rectangle.getHeight()*10;
+        let cr = rectangle.getWidth()*10;
+        let c = document.getElementById("anvat");
+        let ctx = c.getContext("2d");
+        c.width=cr;
+        c.height=cd;
+        ctx.fillStyle = 'blue';
+        ctx.fillRect(0, 0, cr, cd);
+        ctx.fillText("Chu vi " + Circum + " Diện tích " + Area,0,0);
+
+    </script>
+</body>
+
+</html>
