@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[Bài tập] Xây dựng lớp mô tả Temperature</title>
+</head>
+
+<body>
+    <script>
+        function temperature(doC) {
+            this.doC = doC;
+            this.getC = function () {
+                return this.doC;
+            }
+            this.getF = function () {
+                return 1.8 * this.doC + 32;
+            }
+            this.getK = function () {
+                return doC + 273;
+            }
+        }
+        function check(input) {
+            let i=0;
+            for(;i>=0;){
+                if(input>-273){
+                    i=input;
+                    break;
+                }
+                else{
+                    alert("Nhập sai");
+                    input=parseFloat(prompt("Nhập lại nhiệt độ",25));
+                }
+            }
+            return i;
+        }
+        let nhietdo=check(parseFloat(prompt("Nhập vào nhiệt độ",25)));
+        let doc = new temperature(nhietdo);
+        let c = doc.getC();
+        let dof = doc.getF();
+        let dok = doc.getK();
+        alert(`${c} độ C \n = ${dof} độ F \n = ${dok} độ K`);
+    </script>
+</body>
+
+</html>
