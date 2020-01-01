@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[Bài tập] Xây dựng lớp mô tả điện thoại</title>
+</head>
+
+<body>
+    <script>
+        let Mobile = function () {
+            this.setBattery = function (battery) {
+                this.battery = battery;
+            }
+            this.decreaseBattery = function () {
+                this.battery -= 1;
+            }
+            this.increase = function () {
+                this.battery += 1;
+            }
+            this.getBattery = function () {
+                return this.battery;
+            }
+            this.turnOn = function () {
+                this.status = true;
+            }
+            this.turnOff = function () {
+                this.status = false;
+            }
+            this.checkStatus = function () {
+                if (this.status) {
+                    return "On";
+                }
+                else {
+                    return "Off";
+                }
+            }
+            this.message=[];
+            this.sendSMS = function (text) {
+                this.message.push(text);
+                
+            }
+            this.viewSMS = function () {
+                return this.message;
+            }
+            this.getInbox = function () {
+                this.inbox = this.message;
+                return this.inbox;
+            }
+        }
+        let iphone = new Mobile();
+        let nokia=new Mobile();
+        nokia.sendSMS("asda");
+        nokia.sendSMS("adad");
+        nokia.sendSMS("asdaczczca");
+        document.write(nokia.viewSMS());
+    </script>
+</body>
+
+</html>
