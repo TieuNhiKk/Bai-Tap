@@ -17,7 +17,6 @@ function Hero(image, top, left, size) {
 
   this.moveRight = function () {
     this.left += 10;
-    console.log('ok: ' + this.left);
   }
   this.moveLeft = function () {
     this.left -= 10;
@@ -34,7 +33,6 @@ let hero = new Hero('Donald.png', 20, 30, 200);
 let width = window.innerWidth - hero.size;
 let height=window.innerHeight-hero.size;
 function start() {
-  console.log("TCL: start -> window.innerWidth-hero.size", window.innerWidth - hero.size);
   if (hero.left < width) {
     hero.moveRight();
     document.getElementById('game').innerHTML = hero.getHeroElement();
@@ -55,7 +53,6 @@ function back() {
   }
 }
 function Up() {
-  console.log("TCL: start -> window.innerWidth-hero.size", window.innerWidth - hero.size);
   if (hero.top < height) {
     hero.moveDown();
     document.getElementById('game').innerHTML = hero.getHeroElement();
