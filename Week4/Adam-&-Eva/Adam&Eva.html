@@ -44,11 +44,16 @@
             <td><input type="button" value="Say" onclick="say('adam')"></td>
         </tr>
         <tr>
-            <td>Adam</td>
+            <td>Eva</td>
             <td>Female</td>
             <td id="evaw">50</td>
             <td><input type="button" value="Eat" onclick="eat('eva')"></td>
             <td><input type="button" value="Say" onclick="say('eva')"></td>
+        </tr>
+        <tr>
+            <td>Apple</td>
+            <td style="border: 0 solid;"></td>
+            <td id="applew">10</td>
         </tr>
     </table>
     <p id="saynow"></p>
@@ -100,7 +105,7 @@
                 document.write(this.getName() + " say: " + prompt("Nhập vào lời thoại"));
             }
             this.checkApple = function () {
-                apple.isEmpty() ? alert("Hết táo") : alert("Táo còn " + apple.getWeight() + " miếng");
+                return apple.getWeight();
             }
         }
 
@@ -108,28 +113,32 @@
         function eat(a) {
             let adamw = Number(document.getElementById("adamw").textContent);
             let evaw = Number(document.getElementById("evaw").textContent);
-            console.log(a);
+            let applew=document.getElementById("applew");
             if (a === "eva") {
                 human.setWeight(evaw);
                 human.eat();
-                console.log(human.getWeight());
+                applew.innerHTML=human.checkApple();
                 document.getElementById("evaw").innerHTML = human.getWeight();
             }
             else {
                 human.setWeight(adamw);
                 human.eat();
-                console.log(human.getWeight());
+                applew.innerHTML=human.checkApple();
                 document.getElementById("adamw").innerHTML = human.getWeight();
             }
         }
+        let saynow=document.getElementById("saynow");
+        let add=saynow.textContent+"<br>"
         function say(b){
             if(b==="adam"){
             let voi=prompt("Nhập vào lời của Adam");
-            console.log("Adam: ", voi) 
+            add+="Adam: "+ voi +"<br>";
+            saynow.innerHTML=add;
         }
         else{
             let voi=prompt("Nhập vào lời của Eva");
-            console.log("Eva: ", voi);
+            add+="Eva: "+ voi +"<br>";
+            saynow.innerHTML=add;
         }
     }
     </script>
