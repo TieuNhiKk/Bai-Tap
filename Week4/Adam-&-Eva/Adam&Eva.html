@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[Bài tập] Phát triển ứng dụng nhỏ mô phỏng câu chuyện Adam và Eva</title>
+    <style>
+        table,
+        tr,
+        td {
+            border: 1px solid green;
+            text-align: center;
+        }
+
+        td {
+            width: 120px;
+            height: 30px;
+        }
+
+        input {
+            width: 100%;
+            height: 30px;
+            border: 0 solid;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>Gender</td>
+            <td>Weight</td>
+            <td>Eat</td>
+            <td>Say</td>
+        </tr>
+        <tr>
+            <td>Adam</td>
+            <td>Male</td>
+            <td id="adamw">70</td>
+            <td><input type="button" value="Eat" onclick="eat('adam')"></td>
+            <td><input type="button" value="Say" onclick="say('adam')"></td>
+        </tr>
+        <tr>
+            <td>Adam</td>
+            <td>Female</td>
+            <td id="evaw">50</td>
+            <td><input type="button" value="Eat" onclick="eat('eva')"></td>
+            <td><input type="button" value="Say" onclick="say('eva')"></td>
+        </tr>
+    </table>
+    <p id="saynow"></p>
+    <script>
+        function Apple() {
+            this.weight = 10;
+            this.decrease = function () {
+                if (this.weight > 0) {
+                    this.weight -= 1;
+                }
+            }
+            this.isEmpty = function () {
+                this.weight > 0 ? true : false;
+            }
+            this.getWeight = function () {
+                return this.weight;
+            }
+        }
+        function Human() {
+            let apple = new Apple();
+            this.setName = function (name) {
+                this.name = name;
+            }
+            this.setWeight = function (weight) {
+                this.weight = weight;
+            }
+            this.setGender = function (gender) {
+                this.gender = gender;
+            }
+            this.isMale = function () {
+                this.gender === "Male" ? "Male" : "Female";
+            }
+            this.getName = function () {
+                return this.name;
+            }
+            this.eat = function () {
+                if (apple.getWeight() > 0) {
+                    this.weight += 1;
+                    apple.decrease();
+                }
+                else{
+                    alert("Hết cmn táo!");
+                }
+            }
+            this.getWeight = function () {
+                return this.weight;
+            }
+            this.say = function () {
+                document.write(this.getName() + " say: " + prompt("Nhập vào lời thoại"));
+            }
+            this.checkApple = function () {
+                apple.isEmpty() ? alert("Hết táo") : alert("Táo còn " + apple.getWeight() + " miếng");
+            }
+        }
+
+        let human = new Human();
+        function eat(a) {
+            let adamw = Number(document.getElementById("adamw").textContent);
+            let evaw = Number(document.getElementById("evaw").textContent);
+            console.log(a);
+            if (a === "eva") {
+                human.setWeight(evaw);
+                human.eat();
+                console.log(human.getWeight());
+                document.getElementById("evaw").innerHTML = human.getWeight();
+            }
+            else {
+                human.setWeight(adamw);
+                human.eat();
+                console.log(human.getWeight());
+                document.getElementById("adamw").innerHTML = human.getWeight();
+            }
+        }
+        function say(b){
+            if(b==="adam"){
+            let voi=prompt("Nhập vào lời của Adam");
+            console.log("Adam: ", voi) 
+        }
+        else{
+            let voi=prompt("Nhập vào lời của Eva");
+            console.log("Eva: ", voi);
+        }
+    }
+    </script>
+</body>
+
+</html>
