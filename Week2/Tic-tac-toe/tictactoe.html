@@ -6,16 +6,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>[Bài tập] Tic tac toe</title>
+    <style>
+        table,
+        tr,
+        td {
+            border: 0px solid black;
+        }
 
+        td {border: 1px solid;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            vertical-align: middle;
+        }
+        input{
+            width: 60px;
+            height: 30px;
+            margin: 20px 10ex;
+
+        }
+    </style>
 </head>
 
 <body>
+    <table id="caro">
+    </table>
+    <input type="button" value="X" onclick="change('X')">
+    <input type="button" value="O" onclick="change('O')">
     <script>
-        let first = 10;
-        for (i = 1; i <= 52; i++) {
-            first+=first*0.01;
+        let arr = [];
+        function caroGame() {
+            for (let i = 0; i < 8; i++) {
+                arr[i] = [];
+                for (let j = 0; j < 8; j++) {
+                    arr[i][j] = `x${i}y${j}`;
+                }
+            }
+            console.log(arr);
         }
-        document.write(first);
+        caroGame();
+        function print() {
+            let tr = "";
+            for (const i in arr) {
+                let td = "";
+                for (const j in arr[i]) {
+                    td += "<td>" + arr[i][j] + "</td>";
+                }
+                tr += "<tr>" + td + "</tr>";
+            }
+            document.getElementById("caro").innerHTML = tr;
+        }
+        print();
+        function change(a){
+            if(a==="X"){
+                let x=parseInt(prompt("Nhập x"));
+                let y=parseInt(prompt("Nhập y"));
+                arr[x][y]="X";
+                print();
+                check();
+            }
+            else{
+                let x=parseInt(prompt("Nhập x"));
+                let y=parseInt(prompt("Nhập y"));
+                arr[x][y]="O";
+                print();
+                check();
+            }
+        }
+        function check(){
+            for(let i=0;i<arr.length;i++){
+                for(let j=0;j<arr.length;j++){
+                    let a1=(arr[i][j]===arr[i][j+1]&&arr[i][j]===arr[i][j+2]);
+                    let a2=(arr[i][j]===arr[i+1][j]&&arr[i+1][j]===arr[i+2][j]);
+                    let a3=(arr[i][j]===arr[i+1][j+1]&&arr[i+1][j+1]===arr[i+2][j+2]);
+
+                    if(a1||a2||a3){
+                        alert(arr[i][j] + " Win!");
+                        caroGame();
+                    }
+                }
+            }
+        }
     </script>
 </body>
 
