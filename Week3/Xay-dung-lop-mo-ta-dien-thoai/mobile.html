@@ -19,12 +19,22 @@
                 }
             }
             this.increaseEnergy = function () {
-                this.energy++;
+                if (this.energy < 100) {
+                    this.energy++;
+                }
             }
             this.decreaseEnergy = function () {
-                this.energy--;
+                if (this.energy > 0) {
+                    this.energy--;
+                }
+                else {
+                    this.turnOff();
+                }
             }
             this.getEnergy = function () {
+                if (this.energy === 0) {
+                    this.turnOff()
+                }
                 return this.energy;
             }
             this.turnOn = function () {
@@ -45,17 +55,21 @@
             }
             this.sendMessage = [];
             this.writeMessage = function (phone, textmessage) {
-                this.sendMessage.push({text: textmessage });
-                phone.setInbox(textmessage,this.name);
+                this.sendMessage.push({ text: textmessage });
+                phone.setInbox(textmessage, this.name);
+                this.decreaseEnergy();
             }
             this.getMessage = function () {
+                this.decreaseEnergy();
                 return this.sendMessage;
             }
             this.inbox = [];
-            this.setInbox = function (message,from) {
-                this.inbox.push({from:from, text: message});
+            this.setInbox = function (message, from) {
+                this.inbox.push({ from: from, text: message });
+                this.decreaseEnergy();
             }
             this.getInbox = function () {
+                this.decreaseEnergy();
                 return this.inbox;
             }
         }
@@ -66,11 +80,8 @@
         nokia.turnOn();
         if (nokia.checkStatus()) {
             nokia.writeMessage(iphone, "Nokia send message to Iphone");
-            nokia.decreaseEnergy();
             console.log(nokia.getMessage());
-            nokia.decreaseEnergy();
             console.log(nokia.getInbox());
-            nokia.decreaseEnergy();
             console.log(nokia.getEnergy());
         }
 
@@ -80,11 +91,8 @@
         iphone.turnOn();
         if (iphone.checkStatus()) {
             iphone.writeMessage(nokia, "Iphone send message to Nokia");
-            iphone.decreaseEnergy();
             console.log(iphone.getMessage());
-            iphone.decreaseEnergy();
             console.log(iphone.getInbox());
-            iphone.decreaseEnergy();
             console.log(iphone.getEnergy());
         }
     </script>
