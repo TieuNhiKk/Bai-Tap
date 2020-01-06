@@ -12,11 +12,13 @@
         td {
             border: 1px solid green;
             text-align: center;
+            border-collapse: collapse;
         }
 
         td {
             width: 120px;
             height: 30px;
+            border-collapse: collapse;
         }
 
         input {
@@ -51,8 +53,8 @@
             <td><input type="button" value="Say" onclick="say('eva')"></td>
         </tr>
         <tr>
-            <td>Apple</td>
-            <td style="border: 0 solid;"></td>
+            <td colspan="2">Apple</td>
+            <!-- <td></td> -->
             <td id="applew">10</td>
         </tr>
     </table>
