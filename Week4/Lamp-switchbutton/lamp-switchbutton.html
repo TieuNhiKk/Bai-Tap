@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[Bài tập] Phát triển chương trình thể hiện sự tương tác giữa hai đối tượng: công tắc và bóng đèn</title>
+</head>
+
+<body>
+    <span id="lamp"><img src="Off.gif" alt="Lamp"></span>
+    <input id="turnon" type="button" value="Turn On" onclick="main(0)" disabled>
+    <input id="turnoff" type="button" value="Turn Off" onclick="main(1)" disabled>
+    <button id="connect" onclick="main()">Connect To Lamp</button>
+    <script>
+        class ElectricLamp {
+            constructor() {
+                this.status = false;
+            }
+            turnOn() {
+                return this.status = true;
+            }
+            turnOff() {
+                return this.status = false;
+            }
+            lamp(lamp, light) {
+                if (this.status) {
+                    lamp.innerHTML = light;
+                }
+                else {
+                    lamp.innerHTML = light;
+                }
+            }
+        }
+        class SwitchButton {
+            constructor() {
+                this.status = false;
+                this.mylamp
+            }
+            connectToLamp(ElectricLamp) {
+                this.mylamp = new ElectricLamp();
+            }
+            SwitchOn(lamp, light) {
+                this.mylamp.turnOn();
+                this.mylamp.lamp(lamp, light);
+            }
+            switchOff(lamp, light) {
+                this.mylamp.turnOff();
+                this.mylamp.lamp(lamp, light);
+            }
+        }
+
+        function main(num) {
+            let button = new SwitchButton();
+            let display = document.getElementById("lamp");
+            let turnon = '<img src="On.gif" alt="Lamp">';
+            let turnoff = '<img src="Off.gif" alt="Lamp">';
+            document.getElementById("turnoff").disabled = true;
+            document.getElementById("turnon").disabled = false;
+            document.getElementById("connect").disabled = true;
+            button.connectToLamp(ElectricLamp);
+            switch (num) {
+                case 0:
+                    button.SwitchOn(display, turnon);
+                    document.getElementById("turnon").disabled = true;
+                    document.getElementById("turnoff").disabled = false;
+                    break;
+                case 1:
+                    button.connectToLamp(ElectricLamp);
+                    button.switchOff(display, turnoff);
+                    document.getElementById("turnon").disabled = false;
+                    document.getElementById("turnoff").disabled = true;
+                    break;
+            }
+        }
+    </script>
+</body>
+
+</html>
