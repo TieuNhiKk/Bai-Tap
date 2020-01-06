@@ -96,7 +96,7 @@
                     this.weight += 1;
                     apple.decrease();
                 }
-                else{
+                else {
                     alert("Hết cmn táo!");
                 }
             }
@@ -115,34 +115,39 @@
         function eat(a) {
             let adamw = Number(document.getElementById("adamw").textContent);
             let evaw = Number(document.getElementById("evaw").textContent);
-            let applew=document.getElementById("applew");
+            let applew = document.getElementById("applew");
             if (a === "eva") {
                 human.setWeight(evaw);
                 human.eat();
-                applew.innerHTML=human.checkApple();
+                applew.innerHTML = human.checkApple();
                 document.getElementById("evaw").innerHTML = human.getWeight();
             }
             else {
                 human.setWeight(adamw);
                 human.eat();
-                applew.innerHTML=human.checkApple();
+                applew.innerHTML = human.checkApple();
                 document.getElementById("adamw").innerHTML = human.getWeight();
             }
         }
-        let saynow=document.getElementById("saynow");
-        let add=saynow.textContent+"<br>"
-        function say(b){
-            if(b==="adam"){
-            let voi=prompt("Nhập vào lời của Adam");
-            add+="Adam: "+ voi +"<br>";
-            saynow.innerHTML=add;
+        let saynow = document.getElementById("saynow");
+        let add = saynow.textContent + "<br>"
+        function say(b) {
+            if (b === "adam") {
+                let voi = prompt("Nhập vào lời của Adam");
+                if (!voi === null || voi.trim().length >= 1) {
+                    add += "Adam: " + voi + "<br>";
+                    saynow.innerHTML = add;
+                }
+            }
+            else {
+                let voi = prompt("Nhập vào lời của Eva");
+                if (!voi === null || voi.trim().length >= 1) {
+                    add += "Eva: " + voi + "<br>";
+                    saynow.innerHTML = add;
+                }
+            }
+
         }
-        else{
-            let voi=prompt("Nhập vào lời của Eva");
-            add+="Eva: "+ voi +"<br>";
-            saynow.innerHTML=add;
-        }
-    }
     </script>
 </body>
 
