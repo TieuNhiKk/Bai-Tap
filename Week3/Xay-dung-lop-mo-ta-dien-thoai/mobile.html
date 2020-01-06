@@ -10,18 +10,22 @@
 
 <body>
     <script>
-        let Mobile = function () {
-            this.setBattery = function (battery) {
-                this.battery = battery;
+
+        let Mobile = function (name) {
+            this.name = name;
+            this.setEnergy = function (energy) {
+                if (energy >= 0 || energy <= 100) {
+                    this.energy = energy;
+                }
             }
-            this.decreaseBattery = function () {
-                this.battery -= 1;
+            this.increaseEnergy = function () {
+                this.energy++;
             }
-            this.increase = function () {
-                this.battery += 1;
+            this.decreaseEnergy = function () {
+                this.energy--;
             }
-            this.getBattery = function () {
-                return this.battery;
+            this.getEnergy = function () {
+                return this.energy;
             }
             this.turnOn = function () {
                 this.status = true;
@@ -31,31 +35,58 @@
             }
             this.checkStatus = function () {
                 if (this.status) {
-                    return "On";
+                    alert(this.name + " is On");
+                    return true;
                 }
                 else {
-                    return "Off";
+                    alert(this.name + " is Off");
+                    return false;
                 }
             }
-            this.message=[];
-            this.sendSMS = function (text) {
-                this.message.push(text);
-                
+            this.sendMessage = [];
+            this.writeMessage = function (phone, textmessage) {
+                this.sendMessage.push({text: textmessage });
+                phone.setInbox(textmessage,this.name);
             }
-            this.viewSMS = function () {
-                return this.message;
+            this.getMessage = function () {
+                return this.sendMessage;
+            }
+            this.inbox = [];
+            this.setInbox = function (message,from) {
+                this.inbox.push({from:from, text: message});
             }
             this.getInbox = function () {
-                this.inbox = this.message;
                 return this.inbox;
             }
         }
-        let iphone = new Mobile();
-        let nokia=new Mobile();
-        nokia.sendSMS("asda");
-        nokia.sendSMS("adad");
-        nokia.sendSMS("asdaczczca");
-        document.write(nokia.viewSMS());
+
+        let nokia = new Mobile("nokia");
+        let iphone = new Mobile("iphone");
+        nokia.setEnergy(100);
+        nokia.turnOn();
+        if (nokia.checkStatus()) {
+            nokia.writeMessage(iphone, "Nokia send message to Iphone");
+            nokia.decreaseEnergy();
+            console.log(nokia.getMessage());
+            nokia.decreaseEnergy();
+            console.log(nokia.getInbox());
+            nokia.decreaseEnergy();
+            console.log(nokia.getEnergy());
+        }
+
+
+
+        iphone.setEnergy(100);
+        iphone.turnOn();
+        if (iphone.checkStatus()) {
+            iphone.writeMessage(nokia, "Iphone send message to Nokia");
+            iphone.decreaseEnergy();
+            console.log(iphone.getMessage());
+            iphone.decreaseEnergy();
+            console.log(iphone.getInbox());
+            iphone.decreaseEnergy();
+            console.log(iphone.getEnergy());
+        }
     </script>
 </body>
 
