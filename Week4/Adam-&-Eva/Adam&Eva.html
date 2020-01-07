@@ -68,7 +68,13 @@
                 }
             }
             this.isEmpty = function () {
-                this.weight > 0 ? true : false;
+                if (this.weight > 0) {
+                    return false;
+                }
+                else {
+                    return true;
+                }
+                ;
             }
             this.getWeight = function () {
                 return this.weight;
@@ -92,7 +98,7 @@
                 return this.name;
             }
             this.eat = function () {
-                if (apple.getWeight() > 0) {
+                if (!apple.isEmpty()) {
                     this.weight += 1;
                     apple.decrease();
                 }
