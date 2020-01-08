@@ -73,27 +73,27 @@
         let remote = new Remote(sony);
         //Bật Tivi Bằng remote
         remote.switchStatus();
-        console.log("Tivi đang bật", sony.status);
+        document.write("<br>Tivi đang bật: ", sony.status);
         //Chuyển đến kênh 7
-        console.log("Kênh ban đầu: ", listChannel[sony.channel - 1])
+        document.write("<br>Kênh ban đầu: ", listChannel[sony.channel - 1])
         sony.switchChannel("P+", maxchannel);
         sony.switchChannel("P+", maxchannel);
         sony.switchChannel("P+", maxchannel);
         sony.switchChannel("P+", maxchannel);
         sony.switchChannel("P+", maxchannel);
         sony.switchChannel("P+", maxchannel);
-        console.log("Kênh: ", listChannel[sony.channel - 1]);
+        document.write("<br>Kênh: ", listChannel[sony.channel - 1]);
         //Dùng Remote chuyển đến kênh 3
         remote.switchChannel(3, maxchannel);
-        console.log("Chuyển đến kênh 3 bằng Remote: ", listChannel[sony.channel - 1]);
-        console.log("Volume ban đầu: ", sony.volume);
+        document.write("<br>Chuyển đến kênh 3 bằng Remote: ", listChannel[sony.channel - 1]);
+        document.write("<br>Volume ban đầu: ", sony.volume);
         //Tăng Volume lên 2 đơn vị
         remote.switchVolume("Vol+");
         remote.switchVolume("Vol+");
-        console.log("Volume sau khi tăng: ", sony.volume);
+        document.write("<br>Volume sau khi tăng: ", sony.volume);
         //Tắt Tivi bằng Remote
         remote.switchStatus();
-        console.log("Tivi đang bật: ", sony.status);
+        document.write("<br>Tivi đang bật: ", sony.status);
     </script>
 </body>
 </html>
