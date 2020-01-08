@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[*Bài tập] Phát triển chương trình sử dụng Remote để điều khiển Tivi</title>
+</head>
+<body>
+    <script>
+        class Remote {
+            constructor(code) {
+                this.code = code;
+            }
+            switchChannel(key, maxchannel) {
+                if (this.code.status) {
+                    this.code.switchChannel(key, maxchannel);
+                }
+                if (!isNaN(key) && key <= maxchannel) {
+                    this.code.channel = key;
+                }
+            }
+            switchVolume(key) {
+                if (this.code.status) {
+                    this.code.switchVolume(key);
+                }
+            }
+            switchStatus() {
+                if (this.code.status) {
+                    this.code.status = false;
+                }
+                else {
+                    this.code.status = true;
+                }
+            }
+        }
+        class Tivi {
+            constructor(status, volume, channel) {
+                this.status = status;
+                this.volume = volume;
+                this.channel = channel;
+            }
+            switchChannel(key, maxchannel) {
+                if (this.status) {
+                    switch (key) {
+                        case "P+":
+                            if (this.channel < maxchannel)
+                                this.channel++;
+                            break;
+                        case "P-":
+                            if (this.channel > 1) {
+                                this.channel--;
+                            }
+                            break;
+                    }
+                }
+            }
+            switchVolume(key) {
+                if (key === "Vol+" && this.volume < 100 && this.status) {
+                    return this.volume++;
+                }
+                if (key === "Vol-" && this.volume > 0 && this.status) {
+                    return this.volume--;
+                }
+            }
+        }
+        //Tạo danh sách các kênh
+        let listChannel = ["VTV1", "VTV2", "VTV3", "VTV4", "VTV5", "VTV6", "VTV7", "VTV8", "VTV9", "VTV16", "VTV24"];
+        let maxchannel = listChannel.length;
+        //Tạo một Tivi
+        let sony = new Tivi(false, 30, 1);
+        //Tạo một Remote kết nối với Tivi sony
+        let remote = new Remote(sony);
+        //Bật Tivi Bằng remote
+        remote.switchStatus();
+        console.log("Tivi đang bật", sony.status);
+        //Chuyển đến kênh 7
+        console.log("Kênh ban đầu: ", listChannel[sony.channel - 1])
+        sony.switchChannel("P+", maxchannel);
+        sony.switchChannel("P+", maxchannel);
+        sony.switchChannel("P+", maxchannel);
+        sony.switchChannel("P+", maxchannel);
+        sony.switchChannel("P+", maxchannel);
+        sony.switchChannel("P+", maxchannel);
+        console.log("Kênh: ", listChannel[sony.channel - 1]);
+        //Dùng Remote chuyển đến kênh 3
+        remote.switchChannel(3, maxchannel);
+        console.log("Chuyển đến kênh 3 bằng Remote: ", listChannel[sony.channel - 1]);
+        console.log("Volume ban đầu: ", sony.volume);
+        //Tăng Volume lên 2 đơn vị
+        remote.switchVolume("Vol+");
+        remote.switchVolume("Vol+");
+        console.log("Volume sau khi tăng: ", sony.volume);
+        //Tắt Tivi bằng Remote
+        remote.switchStatus();
+        console.log("Tivi đang bật: ", sony.status);
+    </script>
+</body>
+</html>
