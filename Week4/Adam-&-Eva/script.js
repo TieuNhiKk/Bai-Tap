@@ -68,7 +68,7 @@ function eat(id) {
     getHuman.innerHTML = human.Weight;
 }
 let saynow = document.getElementById("saynow");
-let add = saynow.textContent;
+let add = saynow.textContent;                       //Tạo biến toàn cục để xuống dòng 
 function say(id) {
     let human = new Human();
     console.log("Test: say -> add", add);
