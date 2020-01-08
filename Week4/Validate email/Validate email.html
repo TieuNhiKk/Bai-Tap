@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[Bài tập] Validate email</title>
+</head>
+
+<body>
+    <input type="email" id="email" placeholder="Email" oninput="main()" list="suggest">
+    <datalist id="suggest">
+        <option value="a@gmail.com">
+        <option value="ab@yahoo.com">
+        <option value="abc@hotmail.com">
+        <option value="@gmail.com">
+        <option value="ab@gmail.">
+        <option value="@#abc@gmail.com">
+    </datalist>
+    <span id="Output"></span>
+    <script>
+        function validateEmail(str) {
+            let patt = /^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\.[A-Za-z0-9]+)$/;
+            return patt.test(str);
+        }
+        function main() {
+            let str = document.getElementById("email").value;
+            if (validateEmail(str)) {
+                document.getElementById('Output').innerHTML = "Email";
+            }
+            else {
+                document.getElementById('Output').innerHTML = 'Not email';
+            }
+        }
+    </script>
+</body>
+
+</html>
