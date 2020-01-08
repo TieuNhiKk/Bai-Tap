@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[Bài tập] Validate account</title>
+</head>
+<body>
+    <input type="text" id="account" placeholder="username" oninput="main()" list="suggest">
+    <datalist id="suggest">
+        <option value="123abc_">
+            <label>Mẫu hợp lệ</label>
+        <option value="_abc123">
+            <label>Mẫu hợp lệ</label>
+        <option value="______">
+            <label>Mẫu hợp lệ</label>
+        <option value="123456">
+            <label>Mẫu hợp lệ</label>
+        <option value="abcdefg">
+            <label>Mẫu hợp lệ</label>
+        <option value=".@">
+            <label>Mẫu không hợp lệ</label>
+        <option value="12345">
+            <label>Mẫu không hợp lệ</label>
+        <option value="1234_">
+            <label>Mẫu không hợp lệ</label>
+        <option value="abcde">
+            <label>Mẫu không hợp lệ</label>
+    </datalist>
+    <span id="Output"></span>
+    <script>
+        function validateAccount(str) {
+            let patt = /^[_a-z0-9]{6,}$/;
+            return patt.test(str);
+        }
+        function main() {
+            let str = document.getElementById("account").value;
+            if (validateAccount(str)) {
+                document.getElementById('Output').innerHTML = "username is valid";
+            }
+            else {
+                document.getElementById('Output').innerHTML = 'username is not valid';
+            }
+        }
+    </script>
+</body>
+</html>
