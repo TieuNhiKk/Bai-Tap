@@ -6,27 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>[Bài tập] Phát triển ứng dụng nhỏ mô phỏng câu chuyện Adam và Eva</title>
-    <style>
-        table,
-        tr,
-        td {
-            border: 1px solid green;
-            text-align: center;
-            border-collapse: collapse;
-        }
-
-        td {
-            width: 120px;
-            height: 30px;
-            border-collapse: collapse;
-        }
-
-        input {
-            width: 100%;
-            height: 30px;
-            border: 0 solid;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -41,120 +21,25 @@
         <tr>
             <td>Adam</td>
             <td>Male</td>
-            <td id="adamw">70</td>
-            <td><input type="button" value="Eat" onclick="eat('adam')"></td>
-            <td><input type="button" value="Say" onclick="say('adam')"></td>
+            <td id="Adam">70</td>
+            <td><input type="button" value="Eat" onclick="eat('Adam')"></td>
+            <td><input type="button" value="Say" onclick="say('Adam')"></td>
         </tr>
         <tr>
             <td>Eva</td>
             <td>Female</td>
-            <td id="evaw">50</td>
-            <td><input type="button" value="Eat" onclick="eat('eva')"></td>
-            <td><input type="button" value="Say" onclick="say('eva')"></td>
+            <td id="Eva">50</td>
+            <td><input type="button" value="Eat" onclick="eat('Eva')"></td>
+            <td><input type="button" value="Say" onclick="say('Eva')"></td>
         </tr>
         <tr>
             <td colspan="2">Apple</td>
             <!-- <td></td> -->
-            <td id="applew">10</td>
+            <td id="appleWeight">10</td>
         </tr>
     </table>
     <p id="saynow"></p>
-    <script>
-        function Apple() {
-            this.weight = 10;
-            this.decrease = function () {
-                if (this.weight > 0) {
-                    this.weight -= 1;
-                }
-            }
-            this.isEmpty = function () {
-                if (this.weight > 0) {
-                    return false;
-                }
-                else {
-                    return true;
-                }
-                ;
-            }
-            this.getWeight = function () {
-                return this.weight;
-            }
-        }
-        function Human() {
-            let apple = new Apple();
-            this.setName = function (name) {
-                this.name = name;
-            }
-            this.setWeight = function (weight) {
-                this.weight = weight;
-            }
-            this.setGender = function (gender) {
-                this.gender = gender;
-            }
-            this.isMale = function () {
-                this.gender === "Male" ? "Male" : "Female";
-            }
-            this.getName = function () {
-                return this.name;
-            }
-            this.eat = function () {
-                if (!apple.isEmpty()) {
-                    this.weight += 1;
-                    apple.decrease();
-                }
-                else {
-                    alert("Hết cmn táo!");
-                }
-            }
-            this.getWeight = function () {
-                return this.weight;
-            }
-            this.say = function () {
-                document.write(this.getName() + " say: " + prompt("Nhập vào lời thoại"));
-            }
-            this.checkApple = function () {
-                return apple.getWeight();
-            }
-        }
-
-        let human = new Human();
-        function eat(a) {
-            let adamw = Number(document.getElementById("adamw").textContent);
-            let evaw = Number(document.getElementById("evaw").textContent);
-            let applew = document.getElementById("applew");
-            if (a === "eva") {
-                human.setWeight(evaw);
-                human.eat();
-                applew.innerHTML = human.checkApple();
-                document.getElementById("evaw").innerHTML = human.getWeight();
-            }
-            else {
-                human.setWeight(adamw);
-                human.eat();
-                applew.innerHTML = human.checkApple();
-                document.getElementById("adamw").innerHTML = human.getWeight();
-            }
-        }
-        let saynow = document.getElementById("saynow");
-        let add = saynow.textContent + "<br>"
-        function say(b) {
-            if (b === "adam") {
-                let voi = prompt("Nhập vào lời của Adam");
-                if (!voi === null || voi.trim().length >= 1) {
-                    add += "Adam: " + voi + "<br>";
-                    saynow.innerHTML = add;
-                }
-            }
-            else {
-                let voi = prompt("Nhập vào lời của Eva");
-                if (!voi === null || voi.trim().length >= 1) {
-                    add += "Eva: " + voi + "<br>";
-                    saynow.innerHTML = add;
-                }
-            }
-
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
