@@ -6,16 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>[Bài tập] Validate email</title>
 </head>
-
 <body>
-    <input type="email" id="email" placeholder="Email" oninput="main()" list="suggest">
+    <input type="email" id="email" placeholder="Email" oninput="main(this.value,'Output')" list="suggest">
     <datalist id="suggest">
-        <option value="a@gmail.com">
-        <option value="ab@yahoo.com">
-        <option value="abc@hotmail.com">
-        <option value="@gmail.com">
-        <option value="ab@gmail.">
-        <option value="@#abc@gmail.com">
+        <option value="a@gmail.com">Email valid</option>
+        <option value="ab@yahoo.com">Email valid</option>
+        <option value="abc@hotmail.com">Email valid</option>
+        <option value="@gmail.com">Email not valid</option>
+        <option value="ab@gmail.">Email not valid</option>
+        <option value="@#abc@gmail.com">Email not valid</option>
     </datalist>
     <span id="Output"></span>
     <script>
@@ -23,16 +22,14 @@
             let patt = /^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\.[A-Za-z0-9]+)$/;
             return patt.test(str);
         }
-        function main() {
-            let str = document.getElementById("email").value;
+        function main(str, output) {
             if (validateEmail(str)) {
-                document.getElementById('Output').innerHTML = "Email";
+                document.getElementById(output).innerHTML = "Email valid";
             }
             else {
-                document.getElementById('Output').innerHTML = 'Not email';
+                document.getElementById(output).innerHTML = 'Email not valid';
             }
         }
     </script>
 </body>
-
 </html>
