@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[*Bài tập] Luyện tập sử dụng biểu thức chính quy</title>
+</head>
+<body>
+    <!-- Bài 4: Kiểm tra mã số bảo mật hợp lệ -->
+    <input type="password" placeholder="Enter Classname" oninput="main(this.value,'result')">
+    <span id="result"></span>
+    <script>
+        function main(str, output) {
+            let patt = /[a-zA-Z0-9]{6}/;
+            if (!str.match(patt)) {
+                document.getElementById(output).innerHTML = "Wrong password";
+            }
+            else {
+                document.getElementById(output).innerHTML = "";
+            }
+        }
+    </script>
+</body>
+</html>

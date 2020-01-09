@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[*Bài tập] Luyện tập sử dụng biểu thức chính quy</title>
+</head>
+<body>
+    <!-- Bài 2: Đếm số từ trong một chuỗi -->
+    <input type="text" placeholder="Enter Classname" oninput="main(this.value,'result')">
+    <span id="result"></span>
+    <script>
+        function countletter(str) {
+            return str.split(/\s+/).length;
+        }
+        function main(str, output) {
+            if (str.trim().length > 0) {
+                document.getElementById(output).innerHTML = `Có ${countletter(str.trim())} từ trong chuỗi`;
+            }
+            else {
+                document.getElementById(output).innerHTML = "Chưa nhập vào ký tự hoặc số";
+            }
+        }
+    </script>
+</body>
+</html>

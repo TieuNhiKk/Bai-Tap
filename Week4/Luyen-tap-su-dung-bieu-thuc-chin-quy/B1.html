@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[*Bài tập] Luyện tập sử dụng biểu thức chính quy</title>
+</head>
+<body>
+    <!-- Bài 1: Kiểm tra chuỗi đưa vào có đúng dạng dd/mm/yyyy -->
+    <input type="text" placeholder="Enter Classname" oninput="main(this.value,'result')" list="mylist">
+    <datalist id="mylist">
+        <option value="19/12/2020">Date format is right</option>
+        <option value="00/00/1231">Date format is wrong</option>
+    </datalist>
+    <span id="result"></span>
+    <script>
+        function validDate(str) {
+            let patt = /^([0][1-9]|[12][0-9]|[3][01])\/([0][13578]|[1][02])\/\d\d\d\d$|^([0][1-9]|[12][0-9]|[3][0])\/([0][469]|[1][1])\/\d\d\d\d$|^([0][1-9]|[1][0-9]|[2][0-8])\/[0][2]\/\d\d\d\d$/;
+            return patt.test(str);
+        }
+        function main(str, output) {
+            if (validDate(str)) {
+                document.getElementById(output).innerHTML = "Date format input is right";
+            }
+            else {
+                document.getElementById(output).innerHTML = "Date format input is wrong";
+            }
+        }
+
+    </script>
+</body>
+</html>
