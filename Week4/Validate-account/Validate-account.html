@@ -7,26 +7,17 @@
     <title>[Bài tập] Validate account</title>
 </head>
 <body>
-    <input type="text" id="account" placeholder="username" oninput="main()" list="suggest">
+    <input type="text" id="account" placeholder="username" oninput="main(this.value,'Output')" list="suggest">
     <datalist id="suggest">
-        <option value="123abc_">
-            <label>Mẫu hợp lệ</label>
-        <option value="_abc123">
-            <label>Mẫu hợp lệ</label>
-        <option value="______">
-            <label>Mẫu hợp lệ</label>
-        <option value="123456">
-            <label>Mẫu hợp lệ</label>
-        <option value="abcdefg">
-            <label>Mẫu hợp lệ</label>
-        <option value=".@">
-            <label>Mẫu không hợp lệ</label>
-        <option value="12345">
-            <label>Mẫu không hợp lệ</label>
-        <option value="1234_">
-            <label>Mẫu không hợp lệ</label>
-        <option value="abcde">
-            <label>Mẫu không hợp lệ</label>
+        <option value="123abc_">Mẫu hợp lệ</option>
+        <option value="_abc123">Mẫu hợp lệ</option>
+        <option value="______">Mẫu hợp lệ</option>
+        <option value="123456">Mẫu hợp lệ</option>
+        <option value="abcdefg">Mẫu hợp lệ</option>
+        <option value=".@">Mẫu không hợp lệ</option>
+        <option value="12345">Mẫu không hợp lệ</option>
+        <option value="1234_">Mẫu không hợp lệ</option>
+        <option value="abcde">Mẫu không hợp lệ</option>
     </datalist>
     <span id="Output"></span>
     <script>
@@ -34,13 +25,12 @@
             let patt = /^[_a-z0-9]{6,}$/;
             return patt.test(str);
         }
-        function main() {
-            let str = document.getElementById("account").value;
+        function main(str, output) {
             if (validateAccount(str)) {
-                document.getElementById('Output').innerHTML = "username is valid";
+                document.getElementById(output).innerHTML = "username is valid";
             }
             else {
-                document.getElementById('Output').innerHTML = 'username is not valid';
+                document.getElementById(output).innerHTML = 'username is not valid';
             }
         }
     </script>
