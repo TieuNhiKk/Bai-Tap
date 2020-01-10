@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[Bài tập] Sử dụng thuật toán tìm kiếm</title>
+</head>
+<body>
+    <p>Nhập vào danh sách số điện thoại, mỗi sđt là một dòng hoặc cách nhau bằng dấu cách hoặc dấu \ hoặc dấu/</p>
+    <textarea type="text" id="input" rows="10" cols="10"></textarea>
+    <input type="button" value="Viettel" onclick="createArray(document.getElementById('input').value,'output')">
+    <p id="output"></p>
+    <script>
+        function checkPhoneNumber(arr) {
+            let patt = /09[678][0-9]{7}|03[2-9][0-9]{7}|086[0-9]{7}/;
+            let isViettel = '';
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i].match(patt)) {
+                    isViettel += arr[i] + "\<br\>";
+                }
+            }
+            return isViettel;
+        }
+        function createArray(str, output) {
+            let patt = /\n+|\s+|\/+|\/+/;
+            let array = str.split(patt);
+            document.getElementById(output).innerHTML = checkPhoneNumber(array);
+        }
+
+    </script>
+</body>
+</html>
