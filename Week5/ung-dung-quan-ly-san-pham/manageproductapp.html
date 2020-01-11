@@ -5,26 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>[Bài tập] Ứng dụng quản lý sản phẩm sử dụng mảng</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h3>Add New Product</h3>
     <div class="addproduct">
-        <input type="text" name="enterproduct">
-        <input type="button" value="Add" onclick="addProduct('enterproduct'.value)">
+        <input type="text" id="enterproduct" placeholder="Enter Product Name">
+        <input type="button" value="Add" id="add" onclick="app.Add('enterproduct')">
     </div>
     <div>
         <table>
+            <tbody>
+                <tr>
+                    <th>Product Name</th>
+                    <th colspan="2" style="color: red;"><span id="counter"></span></th>
+                </tr>
+            </tbody>
+            <tbody id="showproduct">
+            </tbody>
         </table>
     </div>
-    <script>
-        let storage = ['Apple Iphone 11 Pro', 'Samsung Galaxy Note 10', 'Xiaomi Mi Note 10', 'Samsung Galaxy S11', 'Apple Iphone 11', 'Oppo Renno 10X'];
-        function showProduct() {
-            let tr='<tr><td>';
-            let input='<button onclick="edit(this.)"></button>';
-        }
-        function addProduct(product) {
-
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

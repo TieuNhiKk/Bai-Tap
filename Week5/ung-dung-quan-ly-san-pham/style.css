@@ -1,0 +1,53 @@
+.addproduct {
+    background: burlywood;
+    max-width: 40%;
+    padding: 50px 20px;
+}
+
+#enterproduct {
+    width: 70%;
+    border-radius: 5px;
+    border: 0 solid;
+    height: 30px;
+    padding-left: 10px;
+}
+
+#add {
+    width: 15%;
+    height: 30px;
+    border-radius: 5px;
+    margin-left: 12px;
+    margin-top: 10px;
+}
+
+th,tr,td {
+    padding: 20px 0px;
+    text-align: left;
+}
+
+.pro0 {
+    width: 60%;
+    background-color: thistle;
+}
+
+.pro1 {
+    width: 60%;
+    background-color: white;
+}
+table{
+    border-collapse: collapse;
+}
+.hello{
+    width: 400px;
+    padding-left: 20px;
+}
+input{
+    height: 30px;
+    width: 60px;
+    border-radius: 10px;
+    border: 1px solid;
+    margin-right: 20px;
+}
+td[contentEditable=true]{
+    background-color: white;
+}
