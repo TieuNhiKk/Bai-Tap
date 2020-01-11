@@ -7,46 +7,44 @@
     <title>[*Bài tập] Làm việc với các đối tượng thông dụng</title>
 </head>
 <body>
-    <input type="datetime-local" id="dob" oninput="main()">
+    <input type="text" id="dob" oninput="main()" placeholder="dd/mm/yyy hh" value="20/11/1997 00">
     <input type="button" value="Hello" onclick="main()">
     <div id="output"></div>
     <script>
         function strToArr(str) {
-            return str.split(/[-T,:]/);
+            return str.split(/[/]+|\s+/);
+        }
+        function leapYears(years) {
+            return years % 4 === 0 ? true : false;
+        }
+        function dayendmonth(months, years) {
+            let patt1 = /[024679]|11/;
+            let patt2 = /[358]|10/;
+            if (patt1.test(months)) {
+                return 30;
+            }
+            else if (patt2.test(months)) {
+                return 29;
+            }
+            else {
+                return leapYears(years) ? 28 : 27;
+            }
+        }
+        function check(arr) {
+            return (arr[1] <= 12 && arr[0] <= dayendmonth(arr[1], arr[2]) && arr[3] <= 23) ? true : false;
         }
         function main() {
             let a = document.getElementById("dob").value;
-            if (a !== undefined) {
+            if (check(strToArr(a))) {
                 let arr = strToArr(a);
                 let now = new Date();
-                let dob = new Date(arr[0], arr[1] - 1, arr[2], arr[3], arr[4]);
-                let years = now.getFullYear() - dob.getFullYear();
-                let months = now.getMonth() - dob.getMonth();
-                if (months < 0) {
-                    months = 12 - (dob.getMonth() - now.getMonth());
-                    years -= 1;
-                }
-                let days = now.getDate() - dob.getDate();
-                if (days < 0) {
-                    months -= 1;
-                    days = 30 - (dob.getDate() - now.getDate());
-                    if (months < 0) {
-                        months = 12 - (dob.getMonth() - now.getMonth());
-                        years -= 1;
-                    }
-                }
-                let hours = now.getHours() - dob.getHours();
-                if (hours < 0) {
-                    days -= 1;
-                    hours = Math.abs(hours);
-                }
-                let minutes = now.getMinutes() - dob.getMinutes();
-                if (minutes < 0) {
-                    hours -= 1;
-                    minutes = Math.abs(minutes);
-                }
-                let tmp = [years, months, days, hours, minutes];
-                document.getElementById("output").innerHTML = `Bạn đã sống: <br> ${years} năm <br>${months} tháng <br>${days} ngày <br>${hours} giờ <br>${minutes} phút`;
+                let dob = new Date(arr[2], arr[1] - 1, arr[0], arr[3]);
+                let time = now.getTime() - dob.getTime();
+                let years = Math.floor(time / 1000 / 60 / 60 / 24 / 365.25);
+                let months = Math.floor(time / 1000 / 60 / 60 / 24 / 30.4);
+                let days = Math.floor(time / 1000 / 60 / 60 / 24);
+                let hours = Math.floor(time / 1000 / 60 / 60);
+                document.getElementById("output").innerHTML = `Bạn đã sống: <br> ${years} năm <br>${months + 1} tháng <br>${days} ngày <br>${hours} giờ`;
             }
         }
     </script>

@@ -7,11 +7,19 @@
     <title>[*Bài tập] Làm việc với các đối tượng thông dụng</title>
 </head>
 <body>
-    <a href="http://www.example.com">Some link</a>
-
     <script>
-        var el = document.getElementsByTagName("a");
-        el[0].href = "https://xuanthulab.net";
+        function random(minvalue, maxvalue) {
+            return Math.round(Math.random() * (maxvalue - minvalue) + minvalue);
+        }
+        console.log("Sinh số ngẫu nhiên từ 0-10 ", random(0, 10));
+        console.log("Sinh số ngẫu nhiên từ 0-400 ", random(0, 400));
+        console.log("Sinh số ngẫu nhiên từ 50-100", random(50, 100));
+        console.log("Tìm giá trị nhỏ nhất trong các số 5, 7, 2, 9: ", Math.min(5, 7, 2, 9));
+        console.log("Tính lũy thừa 5^3 ", Math.pow(5, 3));
+        function areaCircle(radius) {
+            return Math.PI * Math.pow(radius, 2);
+        }
+        console.log("Diện tích hình tròn có bán kính 5 cm ", areaCircle(5).toFixed(2) + " cm^2")
     </script>
 </body>
 </html>
