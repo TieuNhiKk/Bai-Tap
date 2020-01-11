@@ -1,33 +1,28 @@
-const VALUE_EMPTY = 1;
-const VALUE_X = 2;
-const VALUE_O = 3;
-const DEFAULT_COLS = 20;
-const DEFAULT_ROWS = 20;
-const DEFAULT_CELL_SIZE = 30;
+const empty = 1;
+const value_x = 2;
+const value_o = 3;
+const cols = 20;
+const rows = 20;
+const cellSize = 30;
 
 function Cell(x, y) {
     this.x = x;
     this.y = y;
-    this.value = VALUE_EMPTY;
+    this.value = empty;
     this.getHtml = function () {
-        var top = x * DEFAULT_CELL_SIZE;
-        var left = y * DEFAULT_CELL_SIZE;
-        var cellHtml = '<div id="cell-' + x + '-' + y + '" onclick="play(' + x + ',' + y + ')" class="cell" style="position: absolute; width: ' +
-            DEFAULT_CELL_SIZE + 'px; height:' +
-            DEFAULT_CELL_SIZE + 'px; left:' +
-            left + 'px; top:' +
-            top + 'px; line-height: ' +
-            DEFAULT_CELL_SIZE + 'px;"></div>';
+        var top = x * cellSize;
+        var left = y * cellSize;
+        var cellHtml = '<div id="cell-' + x + '-' + y + '" onclick="play(' + x + ',' + y + ')" class="cell" style="position: absolute; width: ' + cellSize + 'px; height:' + cellSize + 'px; left:' + left + 'px; top:' + top + 'px; line-height: ' + cellSize + 'px;"></div>';
         return cellHtml;
     };
 
     this.draw = function () {
         var cellDiv = document.getElementById("cell-" + x + "-" + y);
         switch (this.value) {
-            case VALUE_X:
+            case value_x:
                 cellDiv.innerHTML = "X";
                 break;
-            case VALUE_O:
+            case value_o:
                 cellDiv.innerHTML = "O";
                 break;
             default:
@@ -41,7 +36,7 @@ function GameBoard(rows, cols, elementId) {
     this.rows = rows;
     this.cols = cols;
     this.elementId = elementId;
-    this.turn = VALUE_O;
+    this.turn = value_o;
     this.cells = [];
     this.isOver = false;
 
@@ -64,14 +59,14 @@ function GameBoard(rows, cols, elementId) {
             return;
         }
         var cell = this.cells[x][y];
-        if (cell.value === VALUE_EMPTY) {
+        if (cell.value === empty) {
             cell.value = this.turn;
             cell.draw();
             this.check(x, y);
-            if (this.turn === VALUE_O) {
-                this.turn = VALUE_X;
+            if (this.turn === value_o) {
+                this.turn = value_x;
             } else {
-                this.turn = VALUE_O;
+                this.turn = value_o;
             }
         } else {
             alert("Cell is not empty");
@@ -155,7 +150,7 @@ function play(x, y) {
 }
 
 function start() {
-    gameBoard = new GameBoard(DEFAULT_ROWS, DEFAULT_COLS, "game-board");
+    gameBoard = new GameBoard(rows, cols, "game-board");
     gameBoard.draw();
 }
 var gameBoard;
