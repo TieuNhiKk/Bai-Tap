@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[*Bài tập] Làm việc với các đối tượng thông dụng</title>
+</head>
+<body>
+    <input type="text" oninput="main(this.value,'output1')" list="list">
+    <datalist id="list">
+        <option value=""></option>
+    </datalist>
+    <span id="output1"></span>
+    <script>
+        function main(str, output) {
+            let a = str.split(/\s/).length - 1;
+            let arr = [];
+            for (let i = 0; i < str.length; i++) {
+                arr.push(str.substr(i, 1));
+            }
+            let replace = str.replace('Javascript', 'Typescript')
+            document.getElementById(output).innerHTML = `Số ký tự a: ${a}. Chuyển sang mảng: ${arr}. Thay thế 'Javascript' bằng chữ 'Typescript': ${replace}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[*Bài tập] Làm việc với các đối tượng thông dụng</title>
+</head>
+<body>
+    <input type="datetime-local" id="dob" oninput="main()">
+    <input type="button" value="Hello" onclick="main()">
+    <div id="output"></div>
+    <script>
+        function strToArr(str) {
+            return str.split(/[-T,:]/);
+        }
+        function main() {
+            let a = document.getElementById("dob").value;
+            if (a !== undefined) {
+                let arr = strToArr(a);
+                let now = new Date();
+                let dob = new Date(arr[0], arr[1] - 1, arr[2], arr[3], arr[4]);
+                let years = now.getFullYear() - dob.getFullYear();
+                let months = now.getMonth() - dob.getMonth();
+                if (months < 0) {
+                    months = 12 - (dob.getMonth() - now.getMonth());
+                    years -= 1;
+                }
+                let days = now.getDate() - dob.getDate();
+                if (days < 0) {
+                    months -= 1;
+                    days = 30 - (dob.getDate() - now.getDate());
+                    if (months < 0) {
+                        months = 12 - (dob.getMonth() - now.getMonth());
+                        years -= 1;
+                    }
+                }
+                let hours = now.getHours() - dob.getHours();
+                if (hours < 0) {
+                    days -= 1;
+                    hours = Math.abs(hours);
+                }
+                let minutes = now.getMinutes() - dob.getMinutes();
+                if (minutes < 0) {
+                    hours -= 1;
+                    minutes = Math.abs(minutes);
+                }
+                let tmp = [years, months, days, hours, minutes];
+                document.getElementById("output").innerHTML = `Bạn đã sống: <br> ${years} năm <br>${months} tháng <br>${days} ngày <br>${hours} giờ <br>${minutes} phút`;
+            }
+        }
+    </script>
+</body>
+</html>
