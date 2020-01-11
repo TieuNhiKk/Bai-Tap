@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[Bài tập] Phát triển trò chơi cờ ca-ro</title>
+    <style>
+        #game-board {
+            position: relative;
+            margin-top: 50px;
+        }
+
+        .cell {
+            border: solid 1px blue;
+            text-align: center;
+            font-size: 20pt;
+            cursor: pointer;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="start()">Start</button>
+    <div id="game-board">
+    </div>
+    <script>
+        let caro = document.getElementById("caro");
+        window.onload = function () {
+            for (let i = 0; i < 20; i++) {
+                for (let j = 0; j < 20; j++) {
+                    caro.innerHTML += `<div id="cell-${i}-${j}" onclick="play(${i},${j})" class="cell" style="position: absolute; width: 30px; height:30px; left:${i * 30}px; top:${j * 30}px; line-height: 30px;"></div>`
+                }
+            }
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
