@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[Bài tập] Game đoán số</title>
+</head>
+<body>
+    <table id="showArray" title="Mảng chưa sắp xếp"></table>
+    <table id="showsort" title="Mảng sau sắp xếp"></table>
+    <input type="text" placeholder="Kiểm tra số trong mảng" id="hello">
+    <input type="button" value="Check" onclick="main(hello.value)">
+    <div>
+        <p id="checkNumber"></p>
+    </div>
+    <script>
+        // Hàm tạo mảng random các số nguyên từ 1-100
+        function creatArray() {
+            let array = [];
+            for (let i = 0; i < 50; i++) {
+                let a = Math.ceil(Math.random() * 100);
+                array.push(a);
+            }
+            return array;
+        }
+        //Hàm sắp xếp heo thứ tự tăng dần
+        function sortlowtoHight(arr) {
+            return arr.sort((a, b) => a - b);
+        }
+        //Hàm tìm kiếm tuyến tính
+        function linearsearch(array, number) {
+            for (let i in array) {
+                if (array[i] === number) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        // Hàm kiểm tra số nguyên từ 1-100
+        function checkNumber(number) {
+            let num = Number(number);
+            return !isNaN(num) && Number.isInteger(num) && num > 0 && num <= 100;
+        }
+        //Hàm tìm kiếm nhị phân
+        function binarySearch(array, number) {
+            let arr = sortlowtoHight(array);
+            let n = arr.length
+            while (n > 0) {
+                let tmp = arr;
+                let mid = tmp[Math.floor(n / 2)];
+                if (number === mid) {
+                    return true;
+                    break;
+                }
+                if (number < mid) {
+                    arr = tmp.slice(0, Math.floor(n / 2));
+                    n = arr.length
+                }
+                if (number > mid) {
+                    arr = tmp.slice(Math.floor(n / 2) + 1, n);
+                    n = arr.length;
+                }
+            }
+            return false;
+        }
+        //Hiển thị ra màn hình
+        function showArray(arr) {
+            let showarray = '<tr>';
+            for (let i in array) {
+                showarray += `<td>${array[i]}</td>`;
+            }
+            showarray += "</tr>";
+            return showarray;
+        }
+        const array = creatArray();
+        document.getElementById("showArray").innerHTML = showArray(array);
+        const arrsort = sortlowtoHight(array);
+        document.getElementById("showsort").innerHTML = showArray(arrsort);
+        function main(number) {
+            let num = parseInt(number);
+            let result = document.getElementById("checkNumber");
+            if (checkNumber(num)) {
+                if (binarySearch(array, num)) {
+                    result.innerHTML = num + " tồn tại trong mảng";
+                    document.getElementById("hello").placeholder = "Nhập Vào số cần tìm";
+                    document.getElementById("hello").value = '';
+                }
+                else {
+                    result.innerHTML = num + " không tồn tại trong mảng";
+                    document.getElementById("hello").value = '';
+                    document.getElementById("hello").placeholder = "Nhập Vào số cần tìm";
+                }
+            }
+            else {
+                document.getElementById("hello").placeholder = "Nhập một số từ 1-100";
+                document.getElementById("hello").value = '';
+            }
+        }
+    </script>
+</body>
+</html>
